@@ -4,7 +4,21 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    // Add options here
+    // This uses the ember-cli-replace
+    replace: {
+      files: [
+        'index.html'
+      ],
+      patterns: [{
+        match: 'assetsURL',
+        replacement: '/static/assets' // replaces "@@assetsURL" to "/static/assets"
+      },
+      {
+        match: 'imagesURL',
+        replacement: '/static/images' // replaces "@@imagesURL" to "/static/images"
+      }],
+      enabled: true // can be set to false to disable
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
