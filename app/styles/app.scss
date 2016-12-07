@@ -1,5 +1,21 @@
 @import "bootstrap";
 
-body {
-  padding-top: 20px;
+.navbar-default {
+    background-color:#cf102d;
+}
+
+$bgNavpillColor = #eeeeee80;
+.nav-pills > li {
+    &.active a, &.active a:hover, &.active a:focus {
+        background-color: $bgNavpillColor;
+        color: #fff;
+        margin-top: 5px;
+    }
+    a {
+        color: #fff;
+        margin-top: 5px;
+        &:hover {
+            background-color: $bgNavpillColor;
+        }
+    }
 }

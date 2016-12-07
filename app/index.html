@@ -16,6 +16,9 @@
     {{content-for "head-footer"}}
   </head>
   <body>
+    <!-- This will cause Django to generate a csrf cookie -->
+    {% csrf_token %}
+
     {{content-for "body"}}
 
     <script src="@@assetsURL/vendor.js"></script>
