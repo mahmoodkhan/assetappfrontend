@@ -2,20 +2,24 @@
 
 .navbar-default {
     background-color:#cf102d;
+    margin-bottom: 10px;
 }
 
-$bgNavpillColor = #eeeeee80;
+$NavpillColorBg: #eeeeee80;
+$navPillColor: #ffffff;
+$navPillMarginTop: 5px;
+
 .nav-pills > li {
     &.active a, &.active a:hover, &.active a:focus {
-        background-color: $bgNavpillColor;
-        color: #fff;
-        margin-top: 5px;
+        background-color: $NavpillColorBg;
+        color: $navPillColor;
+        margin-top: $navPillMarginTop;
     }
     a {
-        color: #fff;
-        margin-top: 5px;
+        color: $navPillColor;
+        margin-top: $navPillMarginTop;
         &:hover {
-            background-color: $bgNavpillColor;
+            background-color: $NavpillColorBg;
         }
     }
 }
