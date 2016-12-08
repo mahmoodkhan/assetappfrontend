@@ -1,0 +1,18 @@
+<h2>Asset Categories</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each model as |category|}}
+        <tr>
+            <td>{{category.id}}</td>
+            <td>{{category.category}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
