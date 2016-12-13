@@ -24,6 +24,7 @@ module.exports = function(environment) {
     apiURL: '/api',
   };
 
+
   ENV['ember-simple-auth'] = {
     authorizer: 'authorizer:token'
   };
@@ -34,12 +35,13 @@ module.exports = function(environment) {
     tokenPropertyName: 'token',
     authorizationPrefix: 'Bearer ',
     authorizationHeaderName: 'Authorization',
-    headers: {},
+    //headers: {},
     refreshAccessTokens: true,
     tokenExpireName: 'exp',
     timeFactor: 1,
     refreshLeeway: 300 // Refresh the token 5 minutes (300s) before it expires.
   };
+
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
