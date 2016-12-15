@@ -6,5 +6,5 @@ import ENV from 'frontendapp/config/environment';
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     host: ENV.host,
     namespace: 'api',
-    authorizer: 'authorizer:application',
+    authorizer: 'authorizer:drf-token-authorizer',
 });

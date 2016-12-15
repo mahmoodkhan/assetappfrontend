@@ -14,6 +14,11 @@
             <ul class="nav nav-pills">
                 {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
                 {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
+                {{#if session.isAuthenticated}}
+                    {{#link-to 'about' tagName="li"}}<a {{action 'invalidateSession'}}>Logout</a>{{/link-to}}
+                {{else}}
+                    {{#link-to 'login' tagName="li"}}<a href="">Login</a>{{/link-to}}
+                {{/if}}
                 <ul class="nav nav-pills navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

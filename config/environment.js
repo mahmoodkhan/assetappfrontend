@@ -2,6 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
+    host: 'http://localhost:8000',
     modulePrefix: 'frontendapp',
     environment: environment,
     rootURL: '/',
@@ -24,7 +25,13 @@ module.exports = function(environment) {
     apiURL: '/api',
   };
 
+  ENV['ember-simple-auth'] = {
+    authenticationRoute: 'login',
+    routeAfterAuthentication: 'home',
+    routeIfAlreadyAuthenticated: 'about'
+  };
 
+/*
   ENV['ember-simple-auth'] = {
     authorizer: 'authorizer:token'
   };
@@ -41,9 +48,10 @@ module.exports = function(environment) {
     timeFactor: 1,
     refreshLeeway: 300 // Refresh the token 5 minutes (300s) before it expires.
   };
-
+*/
 
   if (environment === 'development') {
+    ENV.host = 'http://localhost:8000';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

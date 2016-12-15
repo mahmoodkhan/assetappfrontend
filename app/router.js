@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('admin', function() {
     this.route('categories');
   });
+  this.route('login');
 });
 
 export default Router;
