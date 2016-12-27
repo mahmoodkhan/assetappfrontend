@@ -10,7 +10,9 @@ Router.map(function() {
   this.route('about');
 
   this.route('admin', function() {
-    this.route('categories');
+    this.route('categories', function() {
+      this.route('new');
+    });
   });
   this.route('login');
 });
