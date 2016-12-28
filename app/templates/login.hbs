@@ -1,16 +1,22 @@
 <form {{action 'authenticate' on='submit'}}>
-  <p>
-    <label for="username">Login</label>
-    {{input id='username' placeholder='Enter Login' value=username}}
-  </p>
-  <p>
-    <label for="password">Password</label>
-    {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  </p>
-  <p>
-    <button type="submit">Login</button>
-  </p>
-  {{#if error}}
-    <p>{{error}}</p>
-  {{/if}}
+    <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">Login</label>
+        <div class="col-sm-10">
+            {{input id='username' placeholder='Enter Login' value=username}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            {{input id='password' placeholder='Enter Password' type='password' value=password}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-sm btn-default">Login</button>
+        </div>
+    </div>
+    {{#if error}}
+        <p>{{error}}</p>
+    {{/if}}
 </form>
