@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
     actions: {
         saveCategory(newCategory) {
-            newCategory.save().then(() => this.transitionTo('categories'));
+            newCategory.save().then(() => this.transitionTo('admin.categories'));
         },
 
         willTransition() {
