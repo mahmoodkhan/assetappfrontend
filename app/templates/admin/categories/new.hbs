@@ -1,4 +1,4 @@
-<h1>Hello New category</h1>
+<h3>Hello New category</h3>
 
 <div class="form-horizontal">
     <div class="form-group">
@@ -13,4 +13,7 @@
             <button type="submit" class="btn btn-default" {{action 'saveCategory' model}}>Add to asset categories</button>
         </div>
     </div>
+    {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
 </div>
