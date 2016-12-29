@@ -1,0 +1,19 @@
+<h3>Edit category</h3>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            {{input type="text" value=model.category class="form-control" placeholder="The name of Asset Category"}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" {{action 'saveCategory' model}}>Save changes</button>
+        </div>
+    </div>
+    {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
+</div>

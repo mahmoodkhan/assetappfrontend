@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('admin', function() {
     this.route('categories', function() {
       this.route('new');
+      this.route('edit', {path: '/:category_id/edit'});
     });
   });
   this.route('login');
