@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('categories', function() {
       this.route('new');
       this.route('edit', {path: '/:category_id/edit'});
+      this.route('delete', {path: '/:category_id/delete'});
     });
   });
   this.route('login');

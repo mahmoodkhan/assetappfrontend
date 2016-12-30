@@ -7,6 +7,7 @@
         <tr>
             <th>ID</th>
             <th>Category</th>
+            <th width="70px">Edit</th>
         </tr>
     </thead>
     <tbody>
@@ -14,6 +15,13 @@
         <tr>
             <td>{{category.id}}</td>
             <td>{{category.category}}</td>
+            <td>
+                {{#link-to 'admin.categories.edit' category.id}}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
+                <button class="btn-link" {{action 'deleteCategory' category}}><span style="color:red;" class="glyphicon glyphicon-trash"></span></button>
+                <!--
+                <a href="javascript.void(0);"><span {{action 'deleteCategory' category}} style="color:red;" class="glyphicon glyphicon-trash"></span></a>
+                -->
+            </td>
         </tr>
     {{/each}}
     </tbody>
