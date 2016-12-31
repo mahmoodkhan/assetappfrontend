@@ -12,24 +12,22 @@
 
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav nav-pills">
-                {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
-                {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
+                {{#link-to 'index' tagName="li"}}<a href="#">Home</a>{{/link-to}}
+                {{#link-to 'about' tagName="li"}}<a href="#">About</a>{{/link-to}}
                 {{#if session.isAuthenticated}}
                     {{#link-to 'about' tagName="li"}}<a {{action 'invalidateSession'}}>Logout</a>{{/link-to}}
                 {{else}}
                     {{#link-to 'login' tagName="li"}}<a href="">Login</a>{{/link-to}}
                 {{/if}}
-                <ul class="nav nav-pills navbar-right">
-                    <li class="dropdown">
+                    <li class="dropdown nav navbar-right">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Admin<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            {{#link-to 'admin.categories.index' tagName="li"}}<a href="">Categories</a>{{/link-to}}
-                            {{#link-to 'admin.categories.new' tagName="li"}}<a href="">New Cateogry</a>{{/link-to}}
+                            <li>{{#link-to 'admin.categories.index'}}<font color="black">Categories</font>{{/link-to}}</li>
+                            <li>{{#link-to 'admin.categories.new'}}<font color="black">New Cateogry</font>{{/link-to}}</li>
                         </ul>
                     </li>
-                </ul>
 
             </ul>
 
