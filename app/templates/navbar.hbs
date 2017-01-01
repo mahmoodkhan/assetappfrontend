@@ -19,12 +19,7 @@
                     {{#link-to 'about'}}About{{/link-to}}
                 {{/link-to}}
                 {{#if session.isAuthenticated}}
-                    <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
-                {{else}}
-                    {{#link-to 'login' tagName="li"}}
-                        {{#link-to 'login'}}Login{{/link-to}}
-                    {{/link-to}}
-                {{/if}}
+
                     <li class="dropdown nav navbar-right">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Admin<span class="caret"></span>
@@ -40,8 +35,16 @@
                                     <font color="black">New Cateogry</font>
                                 {{/link-to}}
                             {{/link-to}}
+                            <li class="divider" role="separator"></li>
+                            <li><a href="#" {{action 'invalidateSession'}}><font color="black">Logout</font></a></li>
                         </ul>
                     </li>
+                {{else}}
+                    {{#link-to 'login' tagName="li" class="pull-right"}}
+                        {{#link-to 'login'}}Login{{/link-to}}
+                    {{/link-to}}
+
+                {{/if}}
 
             </ul>
 
