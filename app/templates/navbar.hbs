@@ -12,20 +12,34 @@
 
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav nav-pills">
-                {{#link-to 'index' tagName="li"}}<a href="#">Home</a>{{/link-to}}
-                {{#link-to 'about' tagName="li"}}<a href="#">About</a>{{/link-to}}
+                {{#link-to 'index' tagName="li"}}
+                    {{#link-to 'index'}}Home{{/link-to}}
+                {{/link-to}}
+                {{#link-to 'about' tagName="li"}}
+                    {{#link-to 'about'}}About{{/link-to}}
+                {{/link-to}}
                 {{#if session.isAuthenticated}}
-                    {{#link-to 'about' tagName="li"}}<a {{action 'invalidateSession'}}>Logout</a>{{/link-to}}
+                    <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
                 {{else}}
-                    {{#link-to 'login' tagName="li"}}<a href="">Login</a>{{/link-to}}
+                    {{#link-to 'login' tagName="li"}}
+                        {{#link-to 'login'}}Login{{/link-to}}
+                    {{/link-to}}
                 {{/if}}
                     <li class="dropdown nav navbar-right">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Admin<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>{{#link-to 'admin.categories.index'}}<font color="black">Categories</font>{{/link-to}}</li>
-                            <li>{{#link-to 'admin.categories.new'}}<font color="black">New Cateogry</font>{{/link-to}}</li>
+                            {{#link-to 'admin.categories.index' tagName="li"}}
+                                {{#link-to 'admin.categories.index'}}
+                                    <font color="black">Categories</font>
+                                {{/link-to}}
+                            {{/link-to}}
+                            {{#link-to 'admin.categories.new' tagName="li"}}
+                                {{#link-to 'admin.categories.new'}}
+                                    <font color="black">New Cateogry</font>
+                                {{/link-to}}
+                            {{/link-to}}
                         </ul>
                     </li>
 
