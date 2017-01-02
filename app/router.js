@@ -17,7 +17,9 @@ Router.map(function() {
     });
   });
   this.route('login');
-  this.route('assets', function() {});
+  this.route('assets', function() {
+    this.route('new');
+  });
 });
 
 export default Router;
