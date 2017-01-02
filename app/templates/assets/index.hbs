@@ -1,0 +1,45 @@
+<h2>Assets List</h2>
+
+{{#link-to 'assets.index'}}<a href="" class="btn btn-sm btn-primary">Add New</a>{{/link-to}}<br /><br />
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Country</th>
+            <th>Office</th>
+            <th>No</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Status</th>
+            <th>Donor</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Description</th>
+            <th width="70px">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each model as |asset|}}
+        <tr>
+            <td>{{asset.id}}</td>
+            <td>{{asset.Country}}</td>
+            <td>{{asset.Office}}</td>
+            <td>{{asset.No}}</td>
+            <td>{{asset.Type}}</td>
+            <td>{{asset.category}}</td>
+            <td>{{asset.Subcategory}}</td>
+            <td>{{asset.Status}}</td>
+            <td>{{asset.Donor}}</td>
+            <td>{{asset.Brand}}</td>
+            <td>{{asset.Model}}</td>
+            <td>{{asset.Description}}</td>
+            <td>
+                {{#link-to 'admin.categories.edit' category.id}}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
+                <button class="btn-link" {{action 'deleteCategory' category}}><span style="color:red;" class="glyphicon glyphicon-trash"></span></button>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
