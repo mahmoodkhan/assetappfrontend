@@ -15,7 +15,7 @@ export default DS.Model.extend({
     sno1: DS.attr('string'),
     sno2: DS.attr('string'),
     accessories: DS.attr('string'),
-    pr_number: DS.attr('string'),
-    po_number: DS.attr('string'),
+    prnumber: DS.attr('string'),
+    ponumber: DS.attr('string'),
     notes: DS.attr('string')
 });

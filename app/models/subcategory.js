@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    category: DS.hasMany('category', {inverse: 'subcategories', async: true}),
     subcategory: DS.attr('string'),
+    category: DS.belongsTo('category', {inverse: 'subcategories', async: true}),
     assets: DS.hasMany('asset'),
 });
