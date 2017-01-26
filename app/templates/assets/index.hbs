@@ -6,20 +6,20 @@
     <thead>
         <tr>
             <th>Country</th>
-            <th>No</th>
+            <th {{action "sortBy" "no"}}>No</th>
             <th>Category</th>
             <th>Subcategory</th>
             <th>Status</th>
             <th>Donor</th>
             <th>Brand</th>
             <th>Model</th>
-            <th>Description</th>
+            <th {{action "sortBy" "description"}}>Description</th>
             <th>Sno</th>
             <th width="70px">Edit</th>
         </tr>
     </thead>
     <tbody>
-    {{#each model as |asset|}}
+    {{#each sortedAssets as |asset|}}
         <tr>
             <td>{{asset.country.iso2}}</td>
             <td>{{asset.no}}</td>
