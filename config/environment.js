@@ -7,6 +7,10 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+        // Allow data (xhr/websocket) from tola-tables-dev and custom-api.local
+        'connect-src': ["'self'", "http://localhost:8000"]
+      },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -21,8 +25,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      usingCors: true,
-      corsWithCreds: true,
+      //usingCors: true,
+      //corsWithCreds: true,
+
     },
     apiURL: '/api',
   };
