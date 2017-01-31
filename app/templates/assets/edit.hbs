@@ -2,6 +2,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        {{asset-form countries=countries item=model buttonLabel="Save changes" onchange="foo"}}
+        {{model.country.name}}
+        {{asset-form countries=countries selected=model.country item=model buttonLabel="Save changes" onchange="foo"}}
     </div>
 </div>
