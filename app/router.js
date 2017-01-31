@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('login');
   this.route('assets', function() {
     this.route('new');
+    this.route('edit', {path: '/:asset_id/edit'});
   });
 });
 

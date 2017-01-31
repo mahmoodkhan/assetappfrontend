@@ -32,7 +32,7 @@
             <td>{{asset.description}}</td>
             <td>{{asset.sno1}}</td>
             <td>
-                {{#link-to 'assets.new'}}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
+                {{#link-to 'assets.edit' asset.id }}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
                 <button class="btn-link" {{action 'deleteAsset' asset}}><span style="color:red;" class="glyphicon glyphicon-trash"></span></button>
             </td>
         </tr>
