@@ -1,14 +1,14 @@
 <div class="form-horizontal">
     <div class="form-group">
-        <label class="col-sm-2 control-label">Country</label>
+        <label class="col-sm-2 control-label">Country:</label>
         <div class="col-sm-10">
             {{#power-select
-                selected=selected_country
                 options=countries
-                onchange=(action "foo")
-                as |name|
+                selected=selected_country
+                onchange=(action "country_change")
+                as |country|
             }}
-                {{name.name}}
+                {{country.name}}
             {{/power-select}}
         </div>
     </div>
