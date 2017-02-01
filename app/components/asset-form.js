@@ -1,15 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    countries: '',
     store: Ember.inject.service(),
+    countries: '',
+    offices: '',
+
     didInsertElement: function(){
-        this.set('countries', this.get('store').findAll('country'));
+        var store = this.get('store');
+        var country_id = this.get('selected_country').get('id');
+        this.set('countries', store.findAll('country'));
+        this.set('offices', store.query('office', { filter: {country: country_id, name: 'KBL'} }));
     },
+
     actions: {
         country_change: function(country) {
             this.set('selected_country', country);
-            console.log(country);
+        },
+
+        office_change: function(office) {
+            this.set('selected_office', office);
         },
     },
 });
