@@ -41,7 +41,7 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label">Asset type:</label>
+        <label class="col-sm-2 control-label">Type:</label>
         <div class="col-sm-10">
             {{#power-select
                 options=atypes
@@ -49,10 +49,27 @@
                 allowClear=true
                 placeholder="Select asset type"
                 searchField="name"
-                onchange=(action mut(selected_type))
+                onchange=(action (mut selected_type))
                 as |assettype|
             }}
                 {{assettype.name}}
+            {{/power-select}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Category:</label>
+        <div class="col-sm-10">
+            {{#power-select
+                options=categories
+                selected=selected_category
+                allowClear=true
+                placeholder="Select category"
+                searchField="name"
+                onchange=(action (mut selected_category))
+                as |category|
+            }}
+                {{category.category}}
             {{/power-select}}
         </div>
     </div>

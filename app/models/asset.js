@@ -4,7 +4,7 @@ export default DS.Model.extend({
     country: DS.belongsTo('country', {inverse: 'assets', async: true}),
     office: DS.belongsTo('office', {inverse: 'assets', async: true}),
     no: DS.attr('number'),
-    asset_type: DS.belongsTo('asset_type', {inverse: 'assets', async: true}),
+    assettype: DS.belongsTo('assettype', {inverse: 'assets', async: true}),
     category: DS.belongsTo('category', {inverse: 'assets', async: true}),
     subcategory: DS.belongsTo('subcategory', {inverse: 'assets', async: true}),
     status: DS.belongsTo('status', {inverse: 'assets', async: true}),
