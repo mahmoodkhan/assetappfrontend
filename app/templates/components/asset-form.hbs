@@ -1,7 +1,7 @@
 <div class="form-horizontal">
     <div class="form-group">
-        <label class="col-sm-2 control-label">Country:</label>
-        <div class="col-sm-10">
+        <label class="col-sm-3 control-label">Country:</label>
+        <div class="col-sm-9">
             {{#power-select
                 options=countries
                 selected=selected_country
@@ -17,8 +17,8 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label">Office:</label>
-        <div class="col-sm-10">
+        <label class="col-sm-3 control-label">Office:</label>
+        <div class="col-sm-9">
             {{#power-select
                 options=offices
                 selected=selected_office
@@ -34,15 +34,15 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label">No</label>
-        <div class="col-sm-10">
+        <label class="col-sm-3 control-label">No:</label>
+        <div class="col-sm-9">
             {{input type="text" value=item.no class="form-control" placeholder="Serial number"}}
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label">Type:</label>
-        <div class="col-sm-10">
+        <label class="col-sm-3 control-label">Type:</label>
+        <div class="col-sm-9">
             {{#power-select
                 options=atypes
                 selected=selected_type
@@ -58,8 +58,8 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label">Category:</label>
-        <div class="col-sm-10">
+        <label class="col-sm-3 control-label">Category:</label>
+        <div class="col-sm-9">
             {{#power-select
                 options=categories
                 selected=selected_category
@@ -75,7 +75,122 @@
     </div>
 
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <label class="col-sm-3 control-label">Subcategory:</label>
+        <div class="col-sm-9">
+            {{#power-select
+                options=subcategories
+                selected=selected_subcategory
+                allowClear=true
+                placeholder="Select subcategory"
+                searchField="name"
+                onchange=(action (mut selected_subcategory))
+                as |subcategory|
+            }}
+                {{subcategory.subcategory}}
+            {{/power-select}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Status:</label>
+        <div class="col-sm-9">
+            {{#power-select
+                options=statuses
+                selected=selected_status
+                allowClear=true
+                placeholder="Select status"
+                searchField="status"
+                onchange=(action (mut selected_status))
+                as |status|
+            }}
+                {{status.status}}
+            {{/power-select}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Status:</label>
+        <div class="col-sm-9">
+            {{#power-select
+                options=donors
+                selected=selected_donor
+                allowClear=true
+                placeholder="Select donor"
+                searchField="donor"
+                onchange=(action (mut selected_donor))
+                as |donor|
+            }}
+                {{donor.donor}}
+            {{/power-select}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Brand:</label>
+        <div class="col-sm-9">
+            {{input type="text" value=item.brand class="form-control" placeholder="Enter brand"}}
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Model:</label>
+        <div class="col-sm-9">
+            {{input type="text" value=item.model class="form-control" placeholder="Enter model"}}
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Description:</label>
+        <div class="col-sm-9">
+            {{input type="text" value=item.description class="form-control" placeholder="Enter Description"}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Sno 1:</label>
+        <div class="col-sm-9">
+            {{input type="text" value=item.sno1 class="form-control" placeholder="Enter serial number 1"}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Sno 2:</label>
+        <div class="col-sm-9">
+            {{input type="text" value=item.sno2 class="form-control" placeholder="Enter serial number 2"}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Accessories:</label>
+        <div class="col-sm-9">
+            {{textarea value=item.accessories class="form-control" placeholder="Enter accessories"}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">PR number:</label>
+        <div class="col-sm-9">
+            {{input type="text" value=item.prnumber class="form-control" placeholder="Enter PR number"}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">PO number:</label>
+        <div class="col-sm-9">
+            {{input type="text" value=item.ponumber class="form-control" placeholder="Enter PO number"}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Notes:</label>
+        <div class="col-sm-9">
+            {{textarea value=item.notes class="form-control" placeholder="Enter notes"}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
             <button type="submit" class="btn btn-default" {{action 'buttonClicked' item}} disabled={{unless item.isValid true}}>{{buttonLabel}}</button>
         </div>
     </div>

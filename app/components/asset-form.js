@@ -6,6 +6,9 @@ export default Ember.Component.extend({
     offices: '',
     atypes: '',
     categories: '',
+    subcategory: '',
+    statuses: '',
+    donors: '',
     didInsertElement: function(){
         var store = this.get('store');
         var country_id = this.get('selected_country').get('id');
@@ -13,6 +16,9 @@ export default Ember.Component.extend({
         this.set('offices', store.query('office', { filter: {country: country_id, name: 'KBL'} }));
         this.set('atypes', store.findAll('assettype'));
         this.set('categories', store.findAll('category'));
+        this.set('subcategory', store.findAll('subcategory'));
+        this.set('statuses', store.findAll('status'));
+        this.set('donors', store.findAll('donor'));
     },
 
     actions: {
