@@ -17,5 +17,5 @@ export default DS.Model.extend({
     accessories: DS.attr('string'),
     prnumber: DS.attr('string'),
     ponumber: DS.attr('string'),
-    notes: DS.attr('string')
+    notes: DS.attr('string'),
 });

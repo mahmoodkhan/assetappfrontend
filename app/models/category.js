@@ -6,5 +6,5 @@ export default DS.Model.extend({
     assets: DS.hasMany('asset'),
     subcategories: DS.hasMany('subcategory'),
 
-    isValid: Ember.computed.notEmpty('category'),
+    isValidCategory: Ember.computed.notEmpty('category'),
 });
