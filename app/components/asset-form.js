@@ -16,7 +16,7 @@ export default Ember.Component.extend({
         this.set('offices', store.query('office', { filter: {country: country_id, name: 'KBL'} }));
         this.set('atypes', store.findAll('assettype'));
         this.set('categories', store.findAll('category'));
-        this.set('subcategory', store.findAll('subcategory'));
+        this.set('subcategories', store.findAll('subcategory'));
         this.set('statuses', store.findAll('status'));
         this.set('donors', store.findAll('donor'));
     },

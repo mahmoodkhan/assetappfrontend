@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
     sortDefinition: ['no'],
     actions: {
         sortBy: function(property) {
-            console.log(property);
+            //console.log(property);
             this.set('sortDefinition', [property]);
         }
     },
