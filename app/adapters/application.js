@@ -23,15 +23,18 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     shouldBackgroundReloadAll: function(store, snapshotArray) {
         //var snapshots = snapshotArray.snapshots();
         const myarr = Array('country', 'category', 'assettype', 'subcategory', 'status', 'donor');
-        const cnt = store.peekAll('category').get('length');
-        console.log(cnt);
-        if (Ember.$.inArray(snapshotArray.type.modelName, myarr) === 1 &&
-                cnt === 0 ) {
-            console.log("fetching from cache: " + snapshotArray.type.modelName);
-            return false;
+        let modelName =snapshotArray.type.modelName;
+        let cnt = store.peekAll(modelName).get('length');
+        console.log(modelName + ": " + cnt);
+        if (Ember.$.inArray(modelName, myarr) === 1 ) {
+            if (cnt === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
         }
-        console.log(snapshotArray.type.modelName);
-        return true;
     },
 
 
