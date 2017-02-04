@@ -12,13 +12,13 @@ export default Ember.Component.extend({
     didInsertElement: function(){
         var store = this.get('store');
         var country_id = this.get('selected_country').get('id');
-        this.set('countries', store.findAll('country'));
-        this.set('offices', store.query('office', { filter: {country: country_id, name: 'KBL'} }));
-        this.set('atypes', store.findAll('assettype'));
-        this.set('categories', store.findAll('category'));
-        this.set('subcategories', store.findAll('subcategory'));
-        this.set('statuses', store.findAll('status'));
-        this.set('donors', store.findAll('donor'));
+        this.set('countries', store.peekAll('country'));
+        this.set('offices', store.query('office', { filter: {country: country_id, name: 'KBL'} }, {backgroundReload: false}));
+        this.set('atypes', store.peekAll('assettype'));
+        this.set('categories', store.peekAll('category'));
+        this.set('subcategories', store.peekAll('subcategory'));
+        this.set('statuses', store.peekAll('status'));
+        this.set('donors', store.peekAll('donor'));
     },
 
     actions: {
