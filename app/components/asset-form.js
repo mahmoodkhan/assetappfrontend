@@ -22,6 +22,10 @@ export default Ember.Component.extend({
     },
 
     actions: {
+        buttonClicked(param) {
+            this.sendAction('action', param);
+        },
+
         country_change: function(country) {
             this.set('selected_country', country);
         },
