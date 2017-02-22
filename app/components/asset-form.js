@@ -9,21 +9,34 @@ export default Ember.Component.extend({
     subcategory: '',
     statuses: '',
     donors: '',
+
+
     didInsertElement: function(){
-        var store = this.get('store');
-        var country_id = this.get('selected_country').get('id');
+        let store = this.get('store');
+        let country_id = this.get('selected_country').get('id');
+        let category_id = this.get('selected_category').get('id');
         this.set('countries', store.peekAll('country'));
         this.set('offices', store.query('office', { filter: {country: country_id, name: 'KBL'} }, {backgroundReload: false}));
         this.set('atypes', store.peekAll('assettype'));
         this.set('categories', store.peekAll('category'));
-        this.set('subcategories', store.peekAll('subcategory'));
+        this.set('subcategories', store.query('subcategory', { filter: {category: category_id} }));
         this.set('statuses', store.peekAll('status'));
         this.set('donors', store.peekAll('donor'));
     },
 
     actions: {
-        buttonClicked(param) {
-            this.sendAction('action', param);
+        /*
+         * buttonClicked is the actionHandler for the 'submit' button in the asset-form component template
+         * the asset-form component receives the 'action' parameter from the assets.edit template, which it
+         * auto retrieves when "this.sendAction('action')"" is called.
+         * The reason this generic buttonClicked hander is specified is to make this component more resuable
+         * since any template that calls this component could pass it in "action" parameter value and this
+         * component will send the action to it.
+         */
+        buttonClicked(item) {
+            //console.log(item.get('description'));
+            //console.log('This action is passed to the asset-form component from the assets.edit template: ', this.get('action'));
+            this.sendAction('action', item);
         },
 
         country_change: function(country) {
