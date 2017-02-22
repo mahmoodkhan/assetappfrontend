@@ -41,6 +41,7 @@ export default Ember.Component.extend({
 
         country_change: function(country) {
             this.set('selected_country', country);
+            this.set('offices', this.get('store').query('office', { filter: {country: country.get('id')} }, {backgroundReload: false}));
         },
 
         office_change: function(office) {

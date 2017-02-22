@@ -25,6 +25,19 @@ $navPillMarginTop: 5px;
     }
 }
 
+.btn-new {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 2px 0;
+  font-size: 16px;
+
+  border-radius: 25px;
+  position: absolute;
+  float: right;
+  top: -10px;
+  right: -5px;
+}
 
 .loader {
     left: 50%;
