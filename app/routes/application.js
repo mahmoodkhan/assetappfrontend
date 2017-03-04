@@ -17,11 +17,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
      * It is called before 'model' and 'afterModel' hooks.
      */
     beforeModel() {
-        /*
+
         this.get('session').authenticate('authenticator:jwt-authenticator').then(()=>{
-            //return this._loadCurrentUser();
+            return this._loadCurrentUser();
         });
-        */
+
         //this.get('session').authenticate('authenticator:jwt-authenticator')
     },
 

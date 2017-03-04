@@ -25,7 +25,7 @@
 
                     <li class="dropdown nav navbar-right">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        Admin<span class="caret"></span>
+                        {{currentUser.user.name}}<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             {{#link-to 'admin.categories.index' tagName="li"}}

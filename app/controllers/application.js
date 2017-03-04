@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
     init() {
         console.log("Application Controller: BLA");
         //this.get('session').authenticate('authenticator:drf-token-authenticator', 'username','password');
-        this.get('session').authenticate('authenticator:jwt-authenticator');
+        //this.get('session').authenticate('authenticator:jwt-authenticator');
         var store = this.get('store');
         console.log('Application Controller store==>',store);
     },
