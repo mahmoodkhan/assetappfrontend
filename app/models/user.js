@@ -4,4 +4,5 @@ export default DS.Model.extend({
     username: DS.attr('string'),
     email: DS.attr('string'),
     name: DS.attr('string'),
+    groups: DS.hasMany('group', {async: true}),
 });

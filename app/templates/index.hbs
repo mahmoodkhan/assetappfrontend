@@ -1,6 +1,8 @@
 <div class="jumbotron text-center">
     <h1>Coming Soon</h1>
-
+    {{#each currentUser.user.groups as |group|}}
+        <p>{{group.name}}</p>
+    {{/each}}
     <br/><br/>
 
     <p>Don't miss our launch date, request an invitation now.</p>

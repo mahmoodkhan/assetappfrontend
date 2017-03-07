@@ -18,6 +18,10 @@ export default Ember.Service.extend({
         if (!isEmpty(userId)) {
             //return this.get('store').queryRecord('user', { me: true }).then((user) => {
             return this.get('store').findRecord('user', userId).then((user) => {
+                //console.log(JSON.stringify(user.email));
+                user.get('groups').forEach(function(g){
+                    console.log(g.get('name'));
+                });
                 this.set('user', user);
             });
         } else {
