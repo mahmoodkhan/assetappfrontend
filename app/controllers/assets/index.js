@@ -5,16 +5,21 @@ export default Ember.Controller.extend({
     sortDefinition: ['no:asc'],
     sortAscending: true,
 
+
     sortHelper: function(field) {
         let sortDefinition = this.get('sortDefinition')[0].split(':')[0];
+        const SORTED_ASCENDING: 'sorted glyphicon glyphicon-arrow-down',
+        const SORTED_DESCENDING: 'sorted glyphicon glyphicon-arrow-up',
+        const UNSORTED: 'glyphicon glyphicon-sort',
+
         if (sortDefinition === field) {
             if (this.get('sortAscending') === true) {
-                return 'sorted glyphicon  glyphicon-arrow-down';
+                return SORTED_ASCENDING;
             } else {
-                return 'sorted glyphicon glyphicon-arrow-up';
+                return SORTED_DESCENDING;
             }
         } else {
-            return 'glyphicon glyphicon-sort';
+            return UNSORTED;
         }
     },
 
