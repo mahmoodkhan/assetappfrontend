@@ -7,8 +7,6 @@ export default Ember.Controller.extend({
 
     sortHelper: function(field) {
         let sortDefinition = this.get('sortDefinition')[0].split(':')[0];
-        console.log(sortDefinition);
-        console.log(field);
         if (sortDefinition === field) {
             if (this.get('sortAscending') === true) {
                 return 'sorted glyphicon  glyphicon-arrow-down';
@@ -20,6 +18,10 @@ export default Ember.Controller.extend({
         }
     },
 
+    sortByCountry: Ember.computed('sortDefinition', function() {
+        return this.sortHelper('country.iso2');
+    }),
+
     sortByNo: Ember.computed('sortDefinition', function() {
         return this.sortHelper('no');
     }),
@@ -30,6 +32,22 @@ export default Ember.Controller.extend({
 
     sortByCategory: Ember.computed('sortDefinition', function() {
         return this.sortHelper('category.category');
+    }),
+
+    sortByStatus: Ember.computed('sortDefinition', function() {
+        return this.sortHelper('status.status');
+    }),
+
+    sortByDonor: Ember.computed('sortDefinition', function() {
+        return this.sortHelper('donor.donor');
+    }),
+
+    sortByBrand: Ember.computed('sortDefinition', function() {
+        return this.sortHelper('brand');
+    }),
+
+    sortByModel: Ember.computed('sortDefinition', function() {
+        return this.sortHelper('model');
     }),
 
     actions: {

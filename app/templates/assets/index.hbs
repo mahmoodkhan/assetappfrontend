@@ -4,16 +4,15 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Country</th>
+                <th {{action "sortBy" "country.iso2"}}>Country<span class="{{sortByCountry}}"></span></th>
                 <th {{action "sortBy" "no"}}>No
                 <span class="{{sortByNo}}"></span></th>
                 <th {{action "sortBy" "category.category"}}>Category<span class="{{sortByCategory}}"></span></th>
-                <th>Status</th>
-                <th>Donor</th>
-                <th>Brand</th>
-                <th>Model</th>
+                <th {{action "sortBy" "status.status"}}>Status<span class="{{sortByStatus}}"></span></th>
+                <th {{action "sortBy" "donor.donor"}}>Donor<span class="{{sortByDonor}}"></span></th>
+                <th {{action "sortBy" "brand"}}>Brand<span class="{{sortByBrand}}"></span></th>
+                <th {{action "sortBy" "model"}}>Model<span class="{{sortByModel}}"></span></th>
                 <th {{action "sortBy" "description"}}>Description<span class="{{sortByDescription}}"></span></th>
-                <th>Sno</th>
                 <th width="70px">Edit</th>
             </tr>
         </thead>
@@ -28,7 +27,6 @@
                 <td>{{asset.brand}}</td>
                 <td>{{asset.model}}</td>
                 <td>{{asset.description}}</td>
-                <td>{{asset.sno1}}</td>
                 <td>
                     {{#link-to 'assets.edit' asset.id }}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
                     <button class="btn-link" {{action 'deleteAsset' asset}}><span style="color:red;" class="glyphicon glyphicon-trash"></span></button>
