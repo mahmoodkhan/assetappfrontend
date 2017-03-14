@@ -5,13 +5,14 @@
         <thead>
             <tr>
                 <th>Country</th>
-                <th {{action "sortBy" "no"}}>No</th>
-                <th>Category</th>
+                <th {{action "sortBy" "no"}}>No
+                <span class="{{sortByNo}}"></span></th>
+                <th {{action "sortBy" "category.category"}}>Category<span class="{{sortByCategory}}"></span></th>
                 <th>Status</th>
                 <th>Donor</th>
                 <th>Brand</th>
                 <th>Model</th>
-                <th {{action "sortBy" "description"}}>Description</th>
+                <th {{action "sortBy" "description"}}>Description<span class="{{sortByDescription}}"></span></th>
                 <th>Sno</th>
                 <th width="70px">Edit</th>
             </tr>
