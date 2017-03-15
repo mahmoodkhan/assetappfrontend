@@ -32,12 +32,6 @@ module.exports = function(environment) {
     apiURL: '/api',
   };
 
-  ENV['ember-simple-auth'] = {
-    authenticationRoute: 'login',
-    routeAfterAuthentication: 'index',
-    routeIfAlreadyAuthenticated: 'about'
-  };
-
 /*
   ENV['ember-simple-auth'] = {
     authorizer: 'authorizer:token'
