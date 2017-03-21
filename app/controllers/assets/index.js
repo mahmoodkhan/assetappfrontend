@@ -8,8 +8,8 @@ export default Ember.Controller.extend({
 
     sortHelper: function(field) {
         let sortDefinition = this.get('sortDefinition')[0].split(':')[0];
-        const SORTED_ASCENDING = 'sorted glyphicon glyphicon-arrow-down';
-        const SORTED_DESCENDING = 'sorted glyphicon glyphicon-arrow-up';
+        const SORTED_ASCENDING = 'sorted glyphicon glyphicon-sort-by-attributes';
+        const SORTED_DESCENDING = 'sorted glyphicon glyphicon-sort-by-attributes-alt';
         const UNSORTED = 'glyphicon glyphicon-sort';
 
         if (sortDefinition === field) {
