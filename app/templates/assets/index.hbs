@@ -1,6 +1,13 @@
 <h2>Assets List</h2>
 
-{{input class="form-control" value=theFilter type='text' placeholder='Filter'}}
+
+
+<div class="inner-addon right-addon">
+    <i class="glyphicon glyphicon-search"></i>
+    {{input class="form-control" value=theFilter type='text' placeholder='Search'}}
+</div>
+
+
 <div style="overflow: visible; position: relative;">
     <div class="table-responsive">
         {{#link-to 'assets.new'}}<li class="btn btn-danger btn-new">+</li>{{/link-to}}
