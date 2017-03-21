@@ -1,42 +1,41 @@
 <h2>Assets List</h2>
 
 {{input class="form-control" value=theFilter type='text' placeholder='Filter'}}
-<div style="overflow: visible; position: relative;" class="table-responsive">
-
-
-    {{#link-to 'assets.new'}}<li class="btn btn-danger btn-new">+</li>{{/link-to}}
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th {{action "sortBy" "country.iso2"}}>Country<span class="{{sortByCountry}}"></span></th>
-                <th {{action "sortBy" "no"}}>No
-                <span class="{{sortByNo}}"></span></th>
-                <th {{action "sortBy" "category.category"}}>Category<span class="{{sortByCategory}}"></span></th>
-                <th {{action "sortBy" "status.status"}}>Status<span class="{{sortByStatus}}"></span></th>
-                <th {{action "sortBy" "donor.donor"}}>Donor<span class="{{sortByDonor}}"></span></th>
-                <th {{action "sortBy" "brand"}}>Brand<span class="{{sortByBrand}}"></span></th>
-                <th {{action "sortBy" "model"}}>Model<span class="{{sortByModel}}"></span></th>
-                <th {{action "sortBy" "description"}}>Description<span class="{{sortByDescription}}"></span></th>
-                <th width="70px">Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-        {{#each sortedAssets as |asset|}}
-            <tr>
-                <td>{{asset.country.iso2}}</td>
-                <td>{{asset.no}}</td>
-                <td>{{asset.category.category}}</td>
-                <td>{{asset.status.status}}</td>
-                <td>{{asset.donor.donor}}</td>
-                <td>{{asset.brand}}</td>
-                <td>{{asset.model}}</td>
-                <td>{{asset.description}}</td>
-                <td>
-                    {{#link-to 'assets.edit' asset.id }}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
-                    <button class="btn-link" {{action 'deleteAsset' asset}}><span style="color:red;" class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-        {{/each}}
-        </tbody>
-    </table>
+<div style="overflow: visible; position: relative;">
+    <div class="table-responsive">
+        {{#link-to 'assets.new'}}<li class="btn btn-danger btn-new">+</li>{{/link-to}}
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th {{action "sortBy" "country.iso2"}}>Country<span class="{{sortByCountry}}"></span></th>
+                    <th {{action "sortBy" "no"}}>No<span class="{{sortByNo}}"></span></th>
+                    <th {{action "sortBy" "category.category"}}>Category<span class="{{sortByCategory}}"></span></th>
+                    <th {{action "sortBy" "status.status"}}>Status<span class="{{sortByStatus}}"></span></th>
+                    <th {{action "sortBy" "donor.donor"}}>Donor<span class="{{sortByDonor}}"></span></th>
+                    <th {{action "sortBy" "brand"}}>Brand<span class="{{sortByBrand}}"></span></th>
+                    <th {{action "sortBy" "model"}}>Model<span class="{{sortByModel}}"></span></th>
+                    <th {{action "sortBy" "description"}}>Description<span class="{{sortByDescription}}"></span></th>
+                    <th width="70px">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{#each sortedAssets as |asset|}}
+                <tr>
+                    <td>{{asset.country.iso2}}</td>
+                    <td>{{asset.no}}</td>
+                    <td>{{asset.category.category}}</td>
+                    <td>{{asset.status.status}}</td>
+                    <td>{{asset.donor.donor}}</td>
+                    <td>{{asset.brand}}</td>
+                    <td>{{asset.model}}</td>
+                    <td>{{asset.description}}</td>
+                    <td>
+                        {{#link-to 'assets.edit' asset.id }}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
+                        <button class="btn-link" {{action 'deleteAsset' asset}}><span style="color:red;" class="glyphicon glyphicon-trash"></span></button>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
 </div>
