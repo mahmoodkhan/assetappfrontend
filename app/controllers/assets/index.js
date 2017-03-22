@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
     sortedAssets: Ember.computed.sort('model', 'sortDefinition'),
     sortDefinition: ['no:asc'],
     sortAscending: true,
-
+    theFilter: '',
 
     sortHelper: function(field) {
         let sortDefinition = this.get('sortDefinition')[0].split(':')[0];
@@ -22,6 +22,14 @@ export default Ember.Controller.extend({
             return UNSORTED;
         }
     },
+
+    //filteredAssets: function() {
+    filteredAssets: Ember.computed('theFilter', 'sortedAssets', function(){
+        let filter = this.get('theFilter');
+        return this.get('sortedAssets').filter((item) => {
+            return item.get('description').toString().slice(0, filter.length).toLowerCase() === filter ;
+        });
+    }), //.property('@each.description'),
 
     sortByCountry: Ember.computed('sortDefinition', function() {
         return this.sortHelper('country.iso2');
