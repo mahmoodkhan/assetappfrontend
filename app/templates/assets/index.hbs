@@ -22,7 +22,7 @@
                     <th {{action "sortBy" "brand"}}>Brand <span class="{{sortByBrand}}"></span></th>
                     <th {{action "sortBy" "model"}}>Model <span class="{{sortByModel}}"></span></th>
                     <th {{action "sortBy" "description"}}>Description <span class="{{sortByDescription}}"></span></th>
-                    <th width="70px">Edit</th>
+                    <th width="40px">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +38,6 @@
                     <td>{{asset.description}}</td>
                     <td>
                         {{#link-to 'assets.edit' asset.id }}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
-                        <button class="btn-link" {{action 'deleteAsset' asset}}><span style="color:red;" class="glyphicon glyphicon-trash"></span></button>
                     </td>
                 </tr>
             {{/each}}

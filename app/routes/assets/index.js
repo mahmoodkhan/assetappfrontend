@@ -6,12 +6,5 @@ export default Ember.Route.extend({
     },
 
     actions: {
-        deleteAsset(asset) {
-            let confirmation = confirm('Are you sure?');
-
-            if (confirmation) {
-                asset.destroyRecord();
-            }
-        }
     }
 });

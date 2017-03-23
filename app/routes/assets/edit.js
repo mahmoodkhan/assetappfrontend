@@ -9,7 +9,13 @@ export default Ember.Route.extend({
         saveAsset(existingAsset) {
             existingAsset.save().then(() => this.transitionTo('assets'));
         },
+        deleteAsset(asset) {
+            let confirmation = confirm('Are you sure?');
 
+            if (confirmation) {
+                asset.destroyRecord();
+            }
+        },
         willTransition(transition) {
             let model = this.controller.get('model');
 

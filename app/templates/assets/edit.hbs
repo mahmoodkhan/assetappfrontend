@@ -1,7 +1,7 @@
 <h3>Update Asset Record</h3>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
         {{asset-form
             selected_country=model.country
             selected_office=model.office
@@ -13,5 +13,11 @@
             item=model
             buttonLabel="Save changes"
             action="saveAsset"}}
+    </div>
+</div>
+<div class="row">
+    <div class="well col-md-8">
+        <button class="btn btn-sm btn-danger" {{action 'deleteAsset' model}}><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        <button class="btn btn-sm btn-info pull-right" {{action 'deleteAsset' model}}>Assign to custodian</button>
     </div>
 </div>
