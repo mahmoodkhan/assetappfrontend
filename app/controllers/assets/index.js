@@ -27,7 +27,10 @@ export default Ember.Controller.extend({
     filteredAssets: Ember.computed('theFilter', 'sortedAssets', function(){
         let filter = this.get('theFilter');
         return this.get('sortedAssets').filter((item) => {
-            return item.get('description').toString().slice(0, filter.length).toLowerCase() === filter ;
+            //console.log(Object.keys(JSON.parse(JSON.stringify(item))));
+            let donor = item.get('donor.donor').toString().slice(0, filter.length).toLowerCase();
+            let description = item.get('description').toString().slice(0, filter.length).toLowerCase();
+            return (donor === filter.toLowerCase() || description === filter.toLowerCase());
         });
     }), //.property('@each.description'),
 
