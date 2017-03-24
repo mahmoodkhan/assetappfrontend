@@ -5,4 +5,5 @@ export default DS.Model.extend({
     email: DS.attr('string'),
     name: DS.attr('string'),
     groups: DS.hasMany('group', {async: true}),
+    custodian: DS.belongsTo('custodian', {inverse: 'user', async: true}),
 });

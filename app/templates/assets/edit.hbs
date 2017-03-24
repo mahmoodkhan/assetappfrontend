@@ -3,25 +3,24 @@
 <div class="row">
     <div class="col-md-8">
         {{asset-form
-            selected_country=model.country
-            selected_office=model.office
-            selected_type=model.assettype
-            selected_category=model.category
-            selected_subcategory=model.subcategory
-            selected_status=model.status
-            selected_donor=model.donor
-            item=model
+            selected_country=model.asset.country
+            selected_office=model.asset.office
+            selected_type=model.asset.assettype
+            selected_category=model.asset.category
+            selected_subcategory=model.asset.subcategory
+            selected_status=model.asset.status
+            selected_donor=model.asset.donor
+            item=model.asset
             buttonLabel="Save changes"
             action="saveAsset"}}
     </div>
 </div>
 <div class="row">
     <div class="well col-md-8">
-        <button class="btn btn-sm btn-danger" {{action 'deleteAsset' model}}><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        <button class="btn btn-sm btn-danger" {{action 'deleteAsset' model.asset}}><span class="glyphicon glyphicon-trash"></span> Delete</button>
         <button data-toggle="modal" data-target="#assignCustodianModal" class="btn btn-sm btn-primary pull-right">Assign to custodian <span class="glyphicon glyphicon-modal-window"></span></button>
     </div>
 </div>
-
 
 <div class="modal fade" id="assignCustodianModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog add-tolaboard-modal" role="document">
@@ -34,27 +33,41 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <div class="row text-center">
-
-
+                    <div class="row">
                         <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Custodian:</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" id="newTBName" type="text" size="50" placeholder="Select a custodian">
+                                    <!--
+                                    {{#each model.custodians as |c|}}
+                                        <p>{{c.name}}</p>
+                                    {{/each}}
+                                    -->
+                                    {{#power-select
+                                        options=custodians
+                                        renderInPlace=true
+                                        selected=selected_custodian
+                                        allowClear=true
+                                        placeholder="Select custodian"
+                                        searchField="name"
+                                        onchange=(action (mut selected_custodian))
+                                        as |custodian|
+                                    }}
+                                        {{custodian.name}}
+                                    {{/power-select}}
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Notes:</label>
                                 <div class="col-sm-9">
-                                    {{textarea rows='5' value=model.notes class="form-control" placeholder="Enter notes"}}
+                                    {{textarea rows='8' value=model.custodian.notes class="form-control" placeholder="Enter notes"}}
                                 </div>
                             </div>
                         </div>
 
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button data-dismiss="modal" class="btn btn-success" {{action 'deleteAsset' model}}>Assign asset to custodian <span class="glyphicon glyphicon-user"></span></button>
+                        <button data-dismiss="modal" class="btn btn-success" {{action 'deleteAsset' model.asset}}>Assign asset to custodian <span class="glyphicon glyphicon-user"></span></button>
                     </div>
                 </div>
             </div> <!-- model body container -->
