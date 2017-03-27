@@ -48,9 +48,9 @@
                                         renderInPlace=true
                                         selected=selected_custodian
                                         allowClear=true
-                                        placeholder="Select custodian"
+                                        placeholder="Select a custodian"
                                         searchField="name"
-                                        onchange=(action (mut selected_custodian))
+                                        onchange=(action "custodian_change")
                                         as |custodian|
                                     }}
                                         {{custodian.name}}
@@ -59,15 +59,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Notes:</label>
+                                <label class="col-sm-3 control-label">Asset:</label>
                                 <div class="col-sm-9">
-                                    {{textarea rows='8' value=model.custodian.notes class="form-control" placeholder="Enter notes"}}
+                                    {{textarea rows='8' value=issuance.notes class="form-control" placeholder="Enter notes"}}
                                 </div>
                             </div>
                         </div>
 
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button data-dismiss="modal" class="btn btn-success" {{action 'deleteAsset' model.asset}}>Assign asset to custodian <span class="glyphicon glyphicon-user"></span></button>
+                        <button data-dismiss="modal" class="btn btn-success" {{action 'assignToCustodian' issuance asset selected_custodian}}>Assign asset to custodian <span class="glyphicon glyphicon-user"></span></button>
                     </div>
                 </div>
             </div> <!-- model body container -->

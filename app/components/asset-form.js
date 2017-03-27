@@ -9,6 +9,7 @@ export default Ember.Component.extend({
     subcategory: '',
     statuses: '',
     donors: '',
+    custodians: '',
 
 
     didInsertElement: function(){
@@ -22,6 +23,7 @@ export default Ember.Component.extend({
         this.set('subcategories', store.query('subcategory', { filter: {category: category_id} }));
         this.set('statuses', store.peekAll('status'));
         this.set('donors', store.peekAll('donor'));
+        this.set('custodians', store.peekAll('custodian'));
     },
 
     actions: {

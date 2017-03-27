@@ -18,4 +18,5 @@ export default DS.Model.extend({
     prnumber: DS.attr('string'),
     ponumber: DS.attr('string'),
     notes: DS.attr('string'),
+    assethistory: DS.hasMany('assetissuancehistory', {inverse: 'asset', async: true}),
 });

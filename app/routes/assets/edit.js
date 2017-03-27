@@ -8,7 +8,8 @@ export default Ember.Route.extend({
         //return this.store.findRecord('asset', params.asset_id);
         return Ember.RSVP.hash({
             asset: this.store.findRecord('asset', params.asset_id),
-            custodians: this.store.findAll('custodian')
+            custodians: this.store.findAll('custodian'),
+            issuance: this.store.createRecord('assetissuancehistory', {})
         });
     },
 
@@ -17,6 +18,7 @@ export default Ember.Route.extend({
         this._super(...arguments);
         Ember.set(controller, 'asset', model.asset);
         Ember.set(controller, 'custodians', model.custodians);
+        Ember.set(controller, 'issuance', model.issuance);
     },
 
     actions: {
@@ -30,10 +32,18 @@ export default Ember.Route.extend({
                 asset.destroyRecord();
             }
         },
+        assignToCustodian(issuance, asset, selected_custodian) {
+            issuance.set('asset', asset);
+            issuance.set('custodian', selected_custodian);
+            console.log(JSON.stringify(issuance));
+            console.log(Ember.inspect(issuance));
+            issuance.save().then(() => console.log("issuance saved successfully!"));
+            //console.log("foooooooooo: " , asset);
+        },
         willTransition(transition) {
             let model = this.controller.get('model');
 
-            if (model.get('hasDirtyAttributes')) {
+            if (model.asset.get('hasDirtyAttributes')) {
                 let confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
                 if (confirmation) {
                     model.rollbackAttributes();
