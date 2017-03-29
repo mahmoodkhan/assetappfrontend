@@ -13,7 +13,6 @@ export default Ember.Route.extend({
         });
     },
 
-    // http://stackoverflow.com/questions/20521967/emberjs-how-to-load-multiple-models-on-the-same-route
     setupController(controller, model) {
         this._super(...arguments);
         Ember.set(controller, 'asset', model.asset);
@@ -32,13 +31,15 @@ export default Ember.Route.extend({
                 asset.destroyRecord();
             }
         },
-        assignToCustodian(issuance, asset, selected_custodian) {
+        assignToCustodian(issuance, asset, selected_custodian, currentUser) {
             issuance.set('asset', asset);
             issuance.set('custodian', selected_custodian);
-            console.log(JSON.stringify(issuance));
-            console.log(Ember.inspect(issuance));
+            //console.log(JSON.stringify(selected_custodian.get('user').get('id')));
+            //console.log(JSON.stringify(currentUser.get('user').get('custodian').get('name') ));
+            issuance.set('issuedby', currentUser.get('user').get('custodian') );
+            //console.log(JSON.stringify(currentUser));
+            //console.log(Ember.inspect(issuance));
             issuance.save().then(() => console.log("issuance saved successfully!"));
-            //console.log("foooooooooo: " , asset);
         },
         willTransition(transition) {
             let model = this.controller.get('model');

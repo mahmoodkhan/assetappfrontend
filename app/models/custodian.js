@@ -5,7 +5,7 @@ export default DS.Model.extend({
     name: DS.attr('string'),
     empnum: DS.attr('number'),
     user: DS.belongsTo('user', {inverse: 'custodian', async: true}),
-    country: DS.belongsTo('country', {inverse: 'custodians', async: true}),
-    countries: DS.hasMany('country', {inverse: 'custodians', async: true}),
-    custodianhistory: DS.hasMany('assetissuancehistory', {inverse: 'custodian', async: true}),
+    country: DS.belongsTo('country', {inverse: 'custodians', async: false}),
+    countries: DS.hasMany('country', {inverse: 'custodians', async: false}),
+    custodianhistory: DS.hasMany('assetissuancehistory', {inverse: 'custodian', async: false}),
 });
