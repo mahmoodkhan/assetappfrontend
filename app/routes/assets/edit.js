@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    currentUser: Ember.inject.service(),
     /*
      This approach is fine provided you do not have any dynamic segments in your route. If you have dynamic segments and the route is entered via {{link-to 'index' someModel}} then the model hook is skipped entirely which will break this example. A more robust approach is to load any extra models in setupController which is always run.
      */
@@ -31,7 +32,8 @@ export default Ember.Route.extend({
                 asset.destroyRecord();
             }
         },
-        assignToCustodian(issuance, asset, selected_custodian, currentUser) {
+        assignToCustodian(selected_custodian) {
+            /*
             issuance.set('asset', asset);
             issuance.set('custodian', selected_custodian);
             //console.log(JSON.stringify(selected_custodian.get('user').get('id')));
@@ -40,6 +42,14 @@ export default Ember.Route.extend({
             //console.log(JSON.stringify(currentUser));
             //console.log(Ember.inspect(issuance));
             issuance.save().then(() => console.log("issuance saved successfully!"));
+            */
+            let issuance = (this.get('controller')).get('issuance');
+            let asset = (this.get('controller')).get('asset');
+            let custodian = (this.get('currentUser').get('user')).get('custodian');
+
+            console.log( JSON.stringify( asset ));
+            console.log( JSON.stringify( issuance ));
+            console.log( JSON.stringify( custodian ) );
         },
         willTransition(transition) {
             let model = this.controller.get('model');
