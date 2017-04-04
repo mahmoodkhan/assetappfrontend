@@ -14,6 +14,11 @@ export default Ember.Route.extend({
         });
     },
 
+    afterModel(model, transition) {
+        console.log('afterModel: ', model.asset.get('description'));
+        this.store.query('assetissuancehistory', { filter: {asset: model.asset.get('id')}}).then(function(history) { console.log("success"); });
+    },
+
     setupController(controller, model) {
         this._super(...arguments);
         Ember.set(controller, 'asset', model.asset);
@@ -47,9 +52,19 @@ export default Ember.Route.extend({
             let asset = (this.get('controller')).get('asset');
             let custodian = (this.get('currentUser').get('user')).get('custodian');
 
-            console.log( JSON.stringify( asset ));
-            console.log( JSON.stringify( issuance ));
-            console.log( JSON.stringify( custodian ) );
+            issuance.set('asset', asset);
+            issuance.set('custodian', selected_custodian);
+            issuance.set('issuedby', custodian);
+            issuance.save().then(() => {
+                let status = this.store.peekRecord('status', 2);
+                asset.status = status;
+                asset.save().then( () => {
+                    console.log("Asset also saved!");
+                    console.log("Asset also saved again!!!! just for fun!");
+
+                });
+                console.log("issuance saved successfully!");
+            });
         },
         willTransition(transition) {
             let model = this.controller.get('model');
@@ -57,7 +72,8 @@ export default Ember.Route.extend({
             if (model.asset.get('hasDirtyAttributes')) {
                 let confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
                 if (confirmation) {
-                    model.rollbackAttributes();
+                    model.asset.rollbackAttributes();
+                    model.issuance.deleteRecord();
                 } else {
                     transition.abort();
                 }
