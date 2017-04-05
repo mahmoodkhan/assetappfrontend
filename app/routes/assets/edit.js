@@ -66,6 +66,11 @@ export default Ember.Route.extend({
                 console.log("issuance saved successfully!");
             });
         },
+
+        returnAssetFromCustodian() {
+            console.log('Returning asset');
+        },
+
         willTransition(transition) {
             let model = this.controller.get('model');
 

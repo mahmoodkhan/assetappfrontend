@@ -18,12 +18,13 @@
 <div class="row">
     <div class="well col-md-8">
         <button class="btn btn-sm btn-danger" {{action 'deleteAsset' model.asset}}><span class="glyphicon glyphicon-trash"></span> Delete</button>
-        <button data-toggle="modal" disabled={{isIssued}} data-target="#assignCustodianModal" class="btn btn-sm btn-primary pull-right">
-            {{# if isIssued }}
-                Already assigned
-            {{ else }}
-                Assign to custodian
-            {{/if}} <span class="glyphicon glyphicon-modal-window"></span></button>
+
+        {{# if isIssued }}
+            <button data-toggle="modal" {{action 'returnAssetFromCustodian'}} class="btn btn-sm btn-primary pull-right"> Return Asset From Custodian<span class="glyphicon glyphicon-modal-window"></span></button>
+        {{ else }}
+            <button data-toggle="modal" data-target="#assignCustodianModal" class="btn btn-sm btn-primary pull-right"> Assign to custodian<span class="glyphicon glyphicon-modal-window"></span></button>
+        {{/if}}
+
     </div>
 </div>
 
