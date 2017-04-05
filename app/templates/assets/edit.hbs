@@ -1,7 +1,7 @@
-<h3>Update Asset Record</h3>
+<h3 class="text-center">Update Asset Record</h3>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         {{asset-form
             selected_country=model.asset.country
             selected_office=model.asset.office
@@ -15,14 +15,14 @@
             action="saveAsset"}}
     </div>
 </div>
-<div class="row">
-    <div class="well col-md-8">
-        <button class="btn btn-sm btn-danger" {{action 'deleteAsset' model.asset}}><span class="glyphicon glyphicon-trash"></span> Delete</button>
+<div class="row text-center">
+    <div class="well well-sm col-md-11">
+        <button class="btn btn-sm btn-danger pull-left" {{action 'deleteAsset' model.asset}}><span class="glyphicon glyphicon-trash"></span> Delete</button>
 
         {{# if isIssued }}
-            <button data-toggle="modal" {{action 'returnAssetFromCustodian'}} class="btn btn-sm btn-primary pull-right"> Return Asset From Custodian<span class="glyphicon glyphicon-modal-window"></span></button>
+            <button {{action 'returnAssetFromCustodian' model.asset}} class="btn btn-sm btn-primary pull-right">Return Asset From Custodian </button>
         {{ else }}
-            <button data-toggle="modal" data-target="#assignCustodianModal" class="btn btn-sm btn-primary pull-right"> Assign to custodian<span class="glyphicon glyphicon-modal-window"></span></button>
+            <button data-toggle="modal" data-target="#assignCustodianModal" class="btn btn-sm btn-primary pull-right"> <span class="glyphicon glyphicon-modal-window"></span> Assign to custodian </button>
         {{/if}}
 
     </div>

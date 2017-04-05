@@ -67,7 +67,7 @@ export default Ember.Route.extend({
             });
         },
 
-        returnAssetFromCustodian() {
+        returnAssetFromCustodian(asset) {
             console.log('Returning asset');
         },
 

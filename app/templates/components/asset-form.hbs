@@ -1,6 +1,6 @@
 <div class="form-horizontal">
     <div class="form-group">
-        <label class="col-sm-3 control-label">Country:</label>
+        <label class="col-sm-2 control-label">Country:</label>
         <div class="col-sm-9">
             {{#power-select
                 options=countries
@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Office:</label>
+        <label class="col-sm-2 control-label">Office:</label>
         <div class="col-sm-9">
             {{#power-select
                 options=offices
@@ -41,7 +41,7 @@
     </div>
 -->
     <div class="form-group">
-        <label class="col-sm-3 control-label">Type:</label>
+        <label class="col-sm-2 control-label">Type:</label>
         <div class="col-sm-9">
             {{#power-select
                 options=atypes
@@ -58,7 +58,7 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Category:</label>
+        <label class="col-sm-2 control-label">Category:</label>
         <div class="col-sm-9">
             {{#power-select
                 options=categories
@@ -75,7 +75,7 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Subcategory:</label>
+        <label class="col-sm-2 control-label">Subcategory:</label>
         <div class="col-sm-9">
             {{#power-select
                 options=subcategories
@@ -92,7 +92,7 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Status:</label>
+        <label class="col-sm-2 control-label">Status:</label>
         <div class="col-sm-9">
             {{#power-select
                 options=statuses
@@ -109,7 +109,7 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Donor:</label>
+        <label class="col-sm-2 control-label">Donor:</label>
         <div class="col-sm-9">
             {{#power-select
                 options=donors
@@ -126,7 +126,7 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Brand:</label>
+        <label class="col-sm-2 control-label">Brand:</label>
         <div class="col-sm-9">
             {{input type="text" value=item.brand class="form-control" placeholder="Enter brand"}}
         </div>
@@ -134,7 +134,7 @@
 
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Model:</label>
+        <label class="col-sm-2 control-label">Model:</label>
         <div class="col-sm-9">
             {{input type="text" value=item.model class="form-control" placeholder="Enter model"}}
         </div>
@@ -142,55 +142,55 @@
 
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Description:</label>
+        <label class="col-sm-2 control-label">Description:</label>
         <div class="col-sm-9">
             {{input type="text" value=item.description class="form-control" placeholder="Enter Description"}}
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Sno 1:</label>
+        <label class="col-sm-2 control-label">Sno 1:</label>
         <div class="col-sm-9">
             {{input type="text" value=item.sno1 class="form-control" placeholder="Enter serial number 1"}}
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Sno 2:</label>
+        <label class="col-sm-2 control-label">Sno 2:</label>
         <div class="col-sm-9">
             {{input type="text" value=item.sno2 class="form-control" placeholder="Enter serial number 2"}}
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Accessories:</label>
+        <label class="col-sm-2 control-label">Accessories:</label>
         <div class="col-sm-9">
             {{textarea rows='4' value=item.accessories class="form-control" placeholder="Enter accessories"}}
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">PR number:</label>
+        <label class="col-sm-2 control-label">PR number:</label>
         <div class="col-sm-9">
             {{input type="text" value=item.prnumber class="form-control" placeholder="Enter PR number"}}
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">PO number:</label>
+        <label class="col-sm-2 control-label">PO number:</label>
         <div class="col-sm-9">
             {{input type="text" value=item.ponumber class="form-control" placeholder="Enter PO number"}}
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Notes:</label>
+        <label class="col-sm-2 control-label">Notes:</label>
         <div class="col-sm-9">
             {{textarea rows='8' value=item.notes class="form-control" placeholder="Enter notes"}}
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
+        <div class="col-sm-offset-2 col-sm-9">
             <button type="submit" class="btn btn-success" {{action 'buttonClicked' item}} disabled={{unless item.isValid true}}><span class="glyphicon glyphicon-saved"></span> {{buttonLabel}}</button>
         </div>
     </div>
