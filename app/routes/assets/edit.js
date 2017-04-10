@@ -57,12 +57,8 @@ export default Ember.Route.extend({
             issuance.set('issuedby', custodian);
             issuance.save().then(() => {
                 let status = this.store.peekRecord('status', 2);
-                asset.status = status;
-                asset.save().then( () => {
-                    console.log("Asset also saved!");
-                    console.log("Asset also saved again!!!! just for fun!");
-
-                });
+                asset.set('status', status);
+                asset.save().then( () => console.log("Asset also saved!"));
                 console.log("issuance saved successfully!");
             });
         },
