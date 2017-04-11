@@ -1,8 +1,8 @@
-<h3>New Asset</h3>
+<h3 class="text-center">New Asset</h3>
 
 <div class="row">
-    <div class="col-md-6">
-        {{asset-form
+    <div class="col-md-12">
+        {{#asset-form
             selected_country=model.country
             selected_office=model.office
             selected_type=model.assettype
@@ -14,5 +14,6 @@
             buttonLabel="Save changes"
             onchange="foo"
             action="saveAsset"}}
+            {{/asset-form}}
     </div>
 </div>
