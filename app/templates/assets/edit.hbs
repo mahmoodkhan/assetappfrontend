@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        {{asset-form
+        {{#asset-form
             selected_country=model.asset.country
             selected_office=model.asset.office
             selected_type=model.asset.assettype
@@ -13,8 +13,18 @@
             item=model.asset
             buttonLabel="Save changes"
             action="saveAsset"}}
+
+                    <button class="btn btn-sm btn-danger pull-right" {{action 'deleteAsset' model.asset}}><span class="glyphicon glyphicon-trash"></span> Delete</button>
+
+                    {{# if isIssued }}
+                        <button {{action 'returnAssetFromCustodian' model.asset}} class="btn btn-sm btn-primary">Return Asset From Custodian </button>
+                    {{ else }}
+                        <button data-toggle="modal" data-target="#assignCustodianModal" class="btn btn-sm btn-primary"> <span class="glyphicon glyphicon-modal-window"></span> Assign to custodian </button>
+                    {{/if}}
+        {{/asset-form}}
     </div>
 </div>
+<!--
 <div class="row text-center">
     <div class="well well-sm col-md-11">
         <button class="btn btn-sm btn-danger pull-left" {{action 'deleteAsset' model.asset}}><span class="glyphicon glyphicon-trash"></span> Delete</button>
@@ -27,6 +37,7 @@
 
     </div>
 </div>
+-->
 
 <div class="modal fade" id="assignCustodianModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog add-tolaboard-modal" role="document">
