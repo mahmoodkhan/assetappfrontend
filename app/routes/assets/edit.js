@@ -38,16 +38,6 @@ export default Ember.Route.extend({
             }
         },
         assignToCustodian(selected_custodian) {
-            /*
-            issuance.set('asset', asset);
-            issuance.set('custodian', selected_custodian);
-            //console.log(JSON.stringify(selected_custodian.get('user').get('id')));
-            //console.log(JSON.stringify(currentUser.get('user').get('custodian').get('name') ));
-            issuance.set('issuedby', currentUser.get('user').get('custodian') );
-            //console.log(JSON.stringify(currentUser));
-            //console.log(Ember.inspect(issuance));
-            issuance.save().then(() => console.log("issuance saved successfully!"));
-            */
             let issuance = (this.get('controller')).get('issuance');
             let asset = (this.get('controller')).get('asset');
             let custodian = (this.get('currentUser').get('user')).get('custodian');
@@ -56,15 +46,17 @@ export default Ember.Route.extend({
             issuance.set('custodian', selected_custodian);
             issuance.set('issuedby', custodian);
             issuance.save().then(() => {
-                let status = this.store.peekRecord('status', 2);
-                asset.set('status', status);
+                let status_issued = this.store.peekRecord('status', 2);
+                asset.set('status', status_issued);
                 asset.save().then( () => console.log("Asset also saved!"));
                 console.log("issuance saved successfully!");
             });
         },
 
         returnAssetFromCustodian(asset) {
-            console.log('Returning asset');
+            let status_available = this.store.peekRecord('status', 1);
+            asset.set('status', status_available);
+            asset.save().then( ()=>console.log("Returned Asset") );
         },
 
         willTransition(transition) {

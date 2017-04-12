@@ -25,12 +25,12 @@ export default Ember.Controller.extend({
 
     //filteredAssets: function() {
     filteredAssets: Ember.computed('theFilter', 'sortedAssets', function(){
-        let filter = this.get('theFilter');
+        let filter_str = this.get('theFilter').toLowerCase();
         return this.get('sortedAssets').filter((item) => {
             //console.log(Object.keys(JSON.parse(JSON.stringify(item))));
-            let donor = item.get('donor.donor').toString().slice(0, filter.length).toLowerCase();
-            let description = item.get('description').toString().slice(0, filter.length).toLowerCase();
-            return (donor === filter.toLowerCase() || description === filter.toLowerCase());
+            let donor = item.get('donor.donor').toString().slice(0, filter_str.length).toLowerCase();
+            let description = item.get('description').toString().slice(0, filter_str.length).toLowerCase();
+            return (donor === filter_str || description === filter_str);
         });
     }), //.property('@each.description'),
 
