@@ -16,7 +16,12 @@ export default Ember.Route.extend({
 
     afterModel(model, transition) {
         console.log('afterModel: ', model.asset.get('description'));
-        this.store.query('assetissuancehistory', { filter: {asset: model.asset.get('id')}}).then(function(history) { console.log("success"); });
+        this.store.query('assetissuancehistory', { filter:
+                {asset: model.asset.get('id')}})
+            .then(function(history) {
+                console.log("success", JSON.stringify(history));
+            }
+        );
     },
 
     setupController(controller, model) {
@@ -56,7 +61,9 @@ export default Ember.Route.extend({
         returnAssetFromCustodian(asset) {
             let status_available = this.store.peekRecord('status', 1);
             asset.set('status', status_available);
-            asset.save().then( ()=>console.log("Returned Asset") );
+            asset.save().then(
+                ()=>console.log("Returned Asset")
+            );
         },
 
         willTransition(transition) {

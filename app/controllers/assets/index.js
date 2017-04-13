@@ -66,6 +66,13 @@ export default Ember.Controller.extend({
         return this.sortHelper('model');
     }),
 
+    sortBy: Ember.computed('sortDefinition', function() {
+        return this.get('sortDefinition')[0].split(':')[0];
+    }),
+
+    sortOrder: Ember.computed('sortAscending', function(){
+        return this.get('sortAscending');
+    }),
     actions: {
         sortBy: function(property) {
             let sortOrder = this.get('sortAscending') ? 'desc' : 'asc';

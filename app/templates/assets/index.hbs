@@ -19,7 +19,17 @@
                     <th {{action "sortBy" "donor.donor"}}>Donor <span class="{{sortByDonor}}"></span></th>
                     <th {{action "sortBy" "brand"}}>Brand <span class="{{sortByBrand}}"></span></th>
                     <th {{action "sortBy" "model"}}>Model <span class="{{sortByModel}}"></span></th>
-                    <th {{action "sortBy" "description"}}>Description <span class="{{sortByDescription}}"></span></th>
+                    <th {{action "sortBy" "description"}}>Description
+                        {{# if (eq sortBy "description") }}
+                            {{# if (eq sortOrder true) }}
+                                <span class="sorted glyphicon glyphicon-sort-by-attributes"></span>
+                            {{ else if (eq sortOrder false) }}
+                                <span class="sorted glyphicon glyphicon-sort-by-attributes-alt"></span>
+                            {{/ if}}
+                        {{ else }}
+                            <span class="glyphicon glyphicon-sort"></span>
+                        {{/ if}}
+                    </th>
                     <th width="40px">Edit</th>
                 </tr>
             </thead>
