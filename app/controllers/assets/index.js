@@ -18,15 +18,12 @@ export default Ember.Controller.extend({
         });
     }), //.property('@each.description'),
 
-    sortByCol: Ember.computed('sortDefinition', function() {
+    sortedColName: Ember.computed('sortDefinition', function() {
         return this.get('sortDefinition')[0].split(':')[0];
     }),
 
-    sortOrder: Ember.computed('sortAscending', function(){
-        return this.get('sortAscending');
-    }),
     actions: {
-        sortBy: function(property) {
+        sortColumnBy: function(property) {
             let sortOrder = this.get('sortAscending') ? 'desc' : 'asc';
             this.set('sortDefinition', [`${property}:${sortOrder}`]);
             this.set('sortAscending', !this.sortAscending);

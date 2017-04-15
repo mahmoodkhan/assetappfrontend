@@ -12,9 +12,9 @@
         <table class="table table-bordered table-striped">
             {{table-thead
                 columns=columns
-                sortBy=(action "sortBy")
-                sortByColName=sortByCol
-                colSortOrder=sortOrder }}
+                sortBy=(action "sortColumnBy")
+                sortedColName=sortedColName
+                sortedColOrder=sortAscending }}
             <tbody>
             {{#each filteredAssets as |asset|}}
                 <tr>

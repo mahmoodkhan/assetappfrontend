@@ -1,10 +1,10 @@
 <tr>
     {{#each columns as |col|}}
         <th {{action "sortColumn" col}}>{{col}}
-        {{# if (eq sortByColName col) }}
-            {{# if (eq colSortOrder true) }}
+        {{# if (eq sortedColName col) }}
+            {{# if (eq sortedColOrder true) }}
                 <span class="sorted glyphicon glyphicon-sort-by-attributes"></span>
-            {{ else if (eq colSortOrder false) }}
+            {{ else if (eq sortedColOrder false) }}
                 <span class="sorted glyphicon glyphicon-sort-by-attributes-alt"></span>
             {{/ if}}
         {{ else }}
@@ -12,7 +12,6 @@
         {{/ if}}
         </th>
     {{else}}
-        <th {{action "sortColumn" "bla"}}>Header 1</th>
+        <th {{action "sortColumn" "colNameToBeSortedBy"}}>Header 1</th>
     {{/each}}
-
 </tr>
