@@ -6,22 +6,6 @@ export default Ember.Controller.extend({
     sortAscending: true,
     theFilter: '',
     columns: ['country.iso2', 'no', 'category.category','status.status', 'donor.donor', 'brand', 'model', 'description', 'edit'],
-    sortHelper: function(field) {
-        let sortDefinition = this.get('sortDefinition')[0].split(':')[0];
-        const SORTED_ASCENDING = 'sorted glyphicon glyphicon-sort-by-attributes';
-        const SORTED_DESCENDING = 'sorted glyphicon glyphicon-sort-by-attributes-alt';
-        const UNSORTED = 'glyphicon glyphicon-sort';
-
-        if (sortDefinition === field) {
-            if (this.get('sortAscending') === true) {
-                return SORTED_ASCENDING;
-            } else {
-                return SORTED_DESCENDING;
-            }
-        } else {
-            return UNSORTED;
-        }
-    },
 
     //filteredAssets: function() {
     filteredAssets: Ember.computed('theFilter', 'sortedAssets', function(){
@@ -33,38 +17,6 @@ export default Ember.Controller.extend({
             return (donor === filter_str || description === filter_str);
         });
     }), //.property('@each.description'),
-
-    sortByCountry: Ember.computed('sortDefinition', function() {
-        return this.sortHelper('country.iso2');
-    }),
-
-    sortByNo: Ember.computed('sortDefinition', function() {
-        return this.sortHelper('no');
-    }),
-
-    sortByDescription: Ember.computed('sortDefinition', function() {
-        return this.sortHelper('description');
-    }),
-
-    sortByCategory: Ember.computed('sortDefinition', function() {
-        return this.sortHelper('category.category');
-    }),
-
-    sortByStatus: Ember.computed('sortDefinition', function() {
-        return this.sortHelper('status.status');
-    }),
-
-    sortByDonor: Ember.computed('sortDefinition', function() {
-        return this.sortHelper('donor.donor');
-    }),
-
-    sortByBrand: Ember.computed('sortDefinition', function() {
-        return this.sortHelper('brand');
-    }),
-
-    sortByModel: Ember.computed('sortDefinition', function() {
-        return this.sortHelper('model');
-    }),
 
     sortByCol: Ember.computed('sortDefinition', function() {
         return this.get('sortDefinition')[0].split(':')[0];
