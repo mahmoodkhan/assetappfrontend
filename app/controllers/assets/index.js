@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
     sortDefinition: ['no:asc'],
     sortAscending: true,
     theFilter: '',
-
+    columns: ['country.iso2', 'no', 'category.category','status.status', 'donor.donor', 'brand', 'model', 'description', 'edit'],
     sortHelper: function(field) {
         let sortDefinition = this.get('sortDefinition')[0].split(':')[0];
         const SORTED_ASCENDING = 'sorted glyphicon glyphicon-sort-by-attributes';
@@ -66,7 +66,7 @@ export default Ember.Controller.extend({
         return this.sortHelper('model');
     }),
 
-    sortBy: Ember.computed('sortDefinition', function() {
+    sortByCol: Ember.computed('sortDefinition', function() {
         return this.get('sortDefinition')[0].split(':')[0];
     }),
 

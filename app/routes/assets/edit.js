@@ -19,7 +19,7 @@ export default Ember.Route.extend({
         this.store.query('assetissuancehistory', { filter:
                 {asset: model.asset.get('id')}})
             .then(function(history) {
-                console.log("success", JSON.stringify(history));
+                console.log("success", history);
             }
         );
     },
