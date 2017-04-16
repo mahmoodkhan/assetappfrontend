@@ -5,7 +5,18 @@ export default Ember.Controller.extend({
     sortDefinition: ['no:asc'],
     sortAscending: true,
     theFilter: '',
-    columns: ['country.iso2', 'no', 'category.category','status.status', 'donor.donor', 'brand', 'model', 'description', 'edit'],
+
+    cols: {
+        'country.iso2': ['Country', true],
+        'no': ['No', true],
+        'category.category': ['Category', true],
+        'status.status': ['Status', true],
+        'donor.donor': ['Donor', true],
+        'brand': ['Brand', true],
+        'model': ['Model', true],
+        'description': ['Description', true],
+        'edit': ['Edit',false]
+    },
 
     //filteredAssets: function() {
     filteredAssets: Ember.computed('theFilter', 'sortedAssets', function(){

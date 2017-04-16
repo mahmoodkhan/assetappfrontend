@@ -1,17 +1,21 @@
 <tr>
-    {{#each columns as |col|}}
-        <th {{action "sortColumn" col}}>{{col}}
-        {{# if (eq sortedColName col) }}
-            {{# if (eq sortedColOrder true) }}
-                <span class="sorted glyphicon glyphicon-sort-by-attributes"></span>
-            {{ else if (eq sortedColOrder false) }}
-                <span class="sorted glyphicon glyphicon-sort-by-attributes-alt"></span>
+    {{#each-in columns as |col properties|}}
+        {{# if (eq properties.[1] true) }}
+            <th {{action "sortColumn" col}}>{{ properties.[0] }}
+            {{# if (eq sortedColName col) }}
+                {{# if (eq sortedColOrder true) }}
+                    <span class="sorted glyphicon glyphicon-sort-by-attributes"></span>
+                {{ else if (eq sortedColOrder false) }}
+                    <span class="sorted glyphicon glyphicon-sort-by-attributes-alt"></span>
+                {{/ if}}
+            {{ else }}
+                <span class="glyphicon glyphicon-sort"></span>
             {{/ if}}
+            </th>
         {{ else }}
-            <span class="glyphicon glyphicon-sort"></span>
+            <th>{{ properties.[0] }}</th>
         {{/ if}}
-        </th>
     {{else}}
         <th {{action "sortColumn" "colNameToBeSortedBy"}}>Header 1</th>
-    {{/each}}
+    {{/each-in}}
 </tr>
