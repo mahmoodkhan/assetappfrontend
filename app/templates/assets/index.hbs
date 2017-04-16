@@ -17,6 +17,7 @@
             <tbody>
             {{#each filteredAssets as |asset|}}
                 <tr>
+                    <td>{{#link-to 'assets.edit' asset.id }} {{asset.description}}{{/link-to}}</td>
                     <td>{{asset.country.iso2}}</td>
                     <td>{{asset.no}}</td>
                     <td>{{asset.category.category}}</td>
@@ -24,10 +25,8 @@
                     <td>{{asset.donor.donor}}</td>
                     <td>{{asset.brand}}</td>
                     <td>{{asset.model}}</td>
-                    <td>{{asset.description}}</td>
-                    <td>
-                        {{#link-to 'assets.edit' asset.id }}<span class="glyphicon glyphicon-edit"></span>{{/link-to}}
-                    </td>
+                    <td>{{asset.prnumber}}</td>
+                    <td>{{asset.ponumber}}</td>
                 </tr>
             {{/each}}
             </tbody>
