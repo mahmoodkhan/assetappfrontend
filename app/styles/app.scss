@@ -70,6 +70,11 @@ table th span {
 .right-addon input { padding-right: 30px; }
 
 
+/* modal close hover over color */
+.close:hover {
+    color: red;
+}
+
 .loader {
     left: 50%;
     top: 50%;

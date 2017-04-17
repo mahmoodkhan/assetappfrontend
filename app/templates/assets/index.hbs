@@ -1,4 +1,4 @@
-<h2 class="text-center">Assets List2</h2>
+<h2 class="text-center"><mark>highlight</mark>Assets List2</h2>
 
 <div class="inner-addon right-addon">
     <i class="glyphicon glyphicon-search"></i>
@@ -17,9 +17,9 @@
             <tbody>
             {{#each filteredAssets as |asset|}}
                 <tr>
-                    <td>{{#link-to 'assets.edit' asset.id }} {{asset.description}}{{/link-to}}</td>
                     <td>{{asset.country.iso2}}</td>
                     <td>{{asset.no}}</td>
+                    <td>{{#link-to 'assets.edit' asset.id }} {{asset.description}}{{/link-to}}</td>
                     <td>{{asset.category.category}}</td>
                     <td>{{asset.status.status}}</td>
                     <td>{{asset.donor.donor}}</td>

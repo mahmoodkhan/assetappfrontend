@@ -7,16 +7,16 @@ export default Ember.Controller.extend({
     theFilter: '',
 
     cols: {
+        'country.iso2': ['CO', false, "Two letter country ISO code"],
+        'no': ['No', true, "Purchase Request Serial Number"],
         'description': ['Description', true],
-        'country.iso2': ['Country', false],
-        'no': ['No', true],
         'category.category': ['Category', true],
         'status.status': ['Status', true],
         'donor.donor': ['Donor', true],
         'brand': ['Brand', true],
         'model': ['Model', true],
-        'prnumber': ['PR #', false],
-        'ponumber': ['PO No', false],
+        'prnumber': ['PR #', false, "Purchase Request Number"],
+        'ponumber': ['PO #', false, "Purchase Order Number"],
     },
 
     //filteredAssets: function() {

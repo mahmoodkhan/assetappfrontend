@@ -1,7 +1,13 @@
 <tr>
     {{#each-in columns as |col properties|}}
         {{# if (eq properties.[1] true) }}
-            <th {{action "sortColumn" col}}>{{ properties.[0] }}
+            <th {{action "sortColumn" col}}>
+                {{# if properties.[2] }}
+                    <abbr title={{properties.[2]}}>{{ properties.[0] }}</abbr>
+                {{ else }}
+                    {{ properties.[0] }}
+                {{/ if}}
+
             {{# if (eq sortedColName col) }}
                 {{# if (eq sortedColOrder true) }}
                     <span class="sorted glyphicon glyphicon-sort-by-attributes"></span>
@@ -13,7 +19,13 @@
             {{/ if}}
             </th>
         {{ else }}
-            <th>{{ properties.[0] }}</th>
+            <th>
+                {{# if properties.[2] }}
+                    <abbr title={{properties.[2]}}>{{ properties.[0] }}</abbr>
+                {{ else }}
+                    {{ properties.[0] }}
+                {{/ if}}
+            </th>
         {{/ if}}
     {{else}}
         <th {{action "sortColumn" "colNameToBeSortedBy"}}>Header 1</th>
