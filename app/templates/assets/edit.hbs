@@ -14,7 +14,7 @@
             buttonLabel="Save changes"
             action="saveAsset"}}
 
-            <button class="btn btn-sm btn-danger pull-right" {{action 'deleteAsset' model.asset}}><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            <button class="btn btn-sm btn-danger pull-right" data-toggle="modal" data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 
             {{# if isIssued }}
                 <button {{action 'returnAssetFromCustodian' model.asset}} class="btn btn-sm btn-primary">Return Asset From Custodian </button>
@@ -24,6 +24,25 @@
         {{/asset-form}}
     </div>
 </div>
+
+<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Delete Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you would like to delete the asset, <b>{{asset.description}}</b> permanently?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-sm btn-danger" {{action 'deleteAsset' model.asset}}>Yes, delete it!</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
 <div class="modal fade" id="assignCustodianModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog add-tolaboard-modal" role="document">
@@ -62,18 +81,19 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Asset:</label>
+                                <label class="col-sm-3 control-label">Notes:</label>
                                 <div class="col-sm-9">
                                     {{textarea rows='8' value=issuance.notes class="form-control" placeholder="Enter notes"}}
                                 </div>
                             </div>
                         </div>
-
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button data-dismiss="modal" class="btn btn-success" {{action 'assignToCustodian' selected_custodian}}>Assign asset to custodian <span class="glyphicon glyphicon-user"></span></button>
                     </div>
                 </div>
             </div> <!-- model body container -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button data-dismiss="modal" class="btn btn-primary" {{action 'assignToCustodian' selected_custodian}}>Assign asset to custodian <span class="glyphicon glyphicon-user"></span></button>
+            </div>
         </div>
     </div>
 </div>

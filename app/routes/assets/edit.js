@@ -36,11 +36,9 @@ export default Ember.Route.extend({
             existingAsset.save().then(() => this.transitionTo('assets'));
         },
         deleteAsset(asset) {
-            let confirmation = confirm('Are you sure?');
-
-            if (confirmation) {
-                asset.destroyRecord();
-            }
+            //jQuery('#deleteModal').modal();
+            console.log("Deleting User! Just FAKE...");
+            //asset.destroyRecord();
         },
         assignToCustodian(selected_custodian) {
             let issuance = (this.get('controller')).get('issuance');
