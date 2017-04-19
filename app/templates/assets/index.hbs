@@ -46,7 +46,7 @@
         We could be smart and disable the link for the current page,
         just like we're doing for the "previous"/"next" links.
         --}}
-        {{#each num in pageRange}}
+        {{#each pageRange as |num|}}
             {{#link-to (query-params page=num)}}{{num}}{{/link-to}}
         {{/each}}
 
@@ -54,7 +54,7 @@
         {{#if isLastPage}}
             <a href="#">NO Next</a>
         {{else}}
-            {{#link-to (query-params page=nextPage)}}YES Next{{/link-to}}
+            {{#link-to (query-params page=nextPage)}}Next{{/link-to}}
         {{/if}}
     </div>
 </div>
