@@ -46,4 +46,49 @@ export default Ember.Controller.extend({
             this.set('sortAscending', !this.sortAscending);
         },
     },
+
+
+
+
+
+
+
+    // Here, we're telling the controller that the property `page`
+    // should be "bound" to the query parameter the same name.
+    // We could map the parameter to a different property name if we wanted.
+    queryParams: ['page'],
+
+    // The default value for our page property
+    page: 1,
+
+    // This property will be set by the parent route
+    pages: null,
+
+    // The following properties will be used for the display of the pagination links
+    prevPage: function() {
+        return this.get('page') - 1;
+    }.property('page'),
+
+    nextPage: function() {
+        return this.get('page') + 1;
+    }.property('page'),
+
+    isFirstPage: function() {
+        return this.get('page') === 1;
+    }.property('page'),
+
+    isLastPage: function() {
+        return this.get('page') >= this.get('pages');
+    }.property('page', 'pages'),
+
+    pageRange: function () {
+        let result = Ember.A();
+
+        for(let i = 1; i <= this.get('pages'); i++) {
+            result.push(i);
+        }
+        console.log("result: .....", result);
+        return result;
+    }.property('pages')
+
 });
