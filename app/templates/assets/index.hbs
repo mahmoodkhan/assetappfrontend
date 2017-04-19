@@ -1,60 +1,90 @@
-<h2 class="text-center"><mark>highlight</mark>Assets List2</h2>
-
-<div class="inner-addon right-addon">
-    <i class="glyphicon glyphicon-search"></i>
-    {{input class="form-control" value=theFilter type='text' placeholder='Search by Description'}}
-</div>
 
 <div style="overflow: visible; position: relative;">
-    <div class="table-responsive">
-        {{#link-to 'assets.new'}}<li class="btn btn-danger btn-new">+</li>{{/link-to}}
-        <table class="table table-bordered table-striped table-hover">
-            {{table-thead
-                columns=cols
-                sortBy=(action "sortColumnBy")
-                sortedColName=sortedColName
-                sortedColOrder=sortAscending }}
-            <tbody>
-            {{#each filteredAssets as |asset|}}
-                <tr>
-                    <td>{{asset.country.iso2}}</td>
-                    <td>{{asset.no}}</td>
-                    <td>{{#link-to 'assets.edit' asset.id }} {{asset.description}}{{/link-to}}</td>
-                    <td>{{asset.category.category}}</td>
-                    <td>{{asset.status.status}}</td>
-                    <td>{{asset.donor.donor}}</td>
-                    <td>{{asset.brand}}</td>
-                    <td>{{asset.model}}</td>
-                    <td>{{asset.prnumber}}</td>
-                    <td>{{asset.ponumber}}</td>
-                </tr>
-            {{/each}}
-            </tbody>
-        </table>
-    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Asset List <mark>highlighted</mark></div>
 
-    <div class="pagination">
-        {{!-- If we're on the first page, do not display the link --}}
-        {{#if isFirstPage}}
-            <a href="#">Previous</a>
-        {{else}}
-            {{#link-to (query-params page=prevPage)}}Previous{{/link-to}}
-        {{/if}}
+        <div class="row">
+            <div class="col-sm-3 pull-right">
+                <div class="inner-addon right-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                    {{input class="form-control" value=theFilter type='text' placeholder='Search by Description'}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    {{#link-to 'assets.new'}}<li class="btn btn-danger btn-new">+</li>{{/link-to}}
+                    <table class="table table-bordered table-striped table-hover">
+                        {{table-thead
+                            columns=cols
+                            sortBy=(action "sortColumnBy")
+                            sortedColName=sortedColName
+                            sortedColOrder=sortAscending }}
+                        <tbody>
+                        {{#each filteredAssets as |asset|}}
+                            <tr>
+                                <td>{{asset.country.iso2}}</td>
+                                <td>{{asset.no}}</td>
+                                <td>{{#link-to 'assets.edit' asset.id }} {{asset.description}}{{/link-to}}</td>
+                                <td>{{asset.category.category}}</td>
+                                <td>{{asset.status.status}}</td>
+                                <td>{{asset.donor.donor}}</td>
+                                <td>{{asset.brand}}</td>
+                                <td>{{asset.model}}</td>
+                                <td>{{asset.prnumber}}</td>
+                                <td>{{asset.ponumber}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pull-right" style="margin:0px; margin-top:-20px;">
 
-        {{!--
-        For each page, display a link leading to it.
-        We could be smart and disable the link for the current page,
-        just like we're doing for the "previous"/"next" links.
-        --}}
-        {{#each pageRange as |num|}}
-            {{#link-to (query-params page=num)}}{{num}}{{/link-to}}
-        {{/each}}
+                        {{!-- If we're on the first page, do not display the link --}}
+                        {{#if isFirstPage}}
+                            <li class="disabled">
+                                <span>
+                                    <span aria-hidden="true">&laquo;</span>
+                                </span>
+                            </li>
+                        {{else}}
+                            <li>
+                                {{#link-to (query-params page=prevPage)}}<span aria-hidden="true">&laquo;</span>{{/link-to}}
+                            </li>
+                        {{/if}}
 
-        {{!-- If we're on the last page, do not display the link --}}
-        {{#if isLastPage}}
-            <a href="#">NO Next</a>
-        {{else}}
-            {{#link-to (query-params page=nextPage)}}Next{{/link-to}}
-        {{/if}}
+                        {{!--
+                        For each page, display a link leading to it.
+                        We could be smart and disable the link for the current page,
+                        just like we're doing for the "previous"/"next" links.
+                        --}}
+                        {{#each pageRange as |num|}}
+                            <li>
+                            {{#link-to (query-params page=num)}}{{num}}{{/link-to}}
+                            </li>
+                        {{/each}}
+
+                        {{!-- If we're on the last page, do not display the link --}}
+                        {{#if isLastPage}}
+                            <li class="disabled">
+                                <span aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </span>
+                            </li>
+                        {{else}}
+                            <li>
+                                {{#link-to (query-params page=nextPage)}}<span aria-hidden="true">&raquo;</span>{{/link-to}}
+                            </li>
+                        {{/if}}
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </div>

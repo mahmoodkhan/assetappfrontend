@@ -18,7 +18,6 @@ export default Ember.Route.extend({
         if(Ember.isPresent(params.page)) {
             query.page = params.page;
         }
-        console.log("Query: ", query);
         return this.store.query('asset', query);
     },
 
