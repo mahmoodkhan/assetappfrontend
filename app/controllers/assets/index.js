@@ -87,7 +87,6 @@ export default Ember.Controller.extend({
         for(let i = 1; i <= this.get('pages'); i++) {
             result.push(i);
         }
-        console.log("result: .....", result);
         return result;
     }.property('pages')
 
