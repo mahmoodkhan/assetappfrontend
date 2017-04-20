@@ -33,6 +33,11 @@ export default Ember.Controller.extend({
             let description = item.get('description').toString().toLowerCase();
             return (donor.includes(filter_str) || description.includes(filter_str));
         });
+        /*
+        return this.get('store').peekAll('asset').filter( (item) => {
+            return item.get('id') > 0;
+        });
+        */
     }), //.property('@each.description'),
 
     sortedColName: Ember.computed('sortDefinition', function() {
@@ -60,6 +65,7 @@ export default Ember.Controller.extend({
 
     // The default value for our page property
     page: 1,
+    page_size: 10,
 
     // This property will be set by the parent route
     pages: null,
