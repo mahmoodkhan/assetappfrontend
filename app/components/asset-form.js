@@ -17,7 +17,8 @@ export default Ember.Component.extend({
         let country_id = this.get('selected_country').get('id');
         let category_id = this.get('selected_category').get('id');
         this.set('countries', store.peekAll('country'));
-        this.set('offices', store.query('office', { filter: {country: country_id, name: 'KBL'} }, {backgroundReload: false}));
+        //this.set('offices', store.query('office', { filter: {country: country_id, name: 'KBL'} }, {backgroundReload: false}));
+        this.set('offices', store.query('office', { filter: {country: country_id} }, {backgroundReload: false}));
         this.set('atypes', store.peekAll('assettype'));
         this.set('categories', store.peekAll('category'));
         this.set('subcategories', store.query('subcategory', { filter: {category: category_id} }));
