@@ -13,16 +13,22 @@ export default Ember.Service.extend({
         let base64 = base64Url.replace('-', '+').replace('_', '/');
         let jwtobj = JSON.parse(window.atob(base64));
         let userId = jwtobj.user_id;
-        console.log('current-user-service', jwtobj);
+        //console.log('current-user-service', jwtobj);
         //console.log('current-user service', JSON.stringify(userId));
         if (!isEmpty(userId)) {
-            //return this.get('store').queryRecord('user', { me: true }).then((user) => {
-            return this.get('store').findRecord('user', userId).then((user) => {
-                //console.log(JSON.stringify(user.email));
+            //return this.get('store').findRecord('user', userId).then((user) => {
+            return this.get('store').query('custodian', { filter: { user: userId } } ).then( (users) => {
+                users.forEach( (u) => {
+                    //console.log( u.get('user').get('email'));
+                    this.set('custodian', u);
+                });
+                /*
                 user.get('groups').forEach(function(g){
                     console.log(g.get('name'));
                 });
-                this.set('user', user);
+                */
+                //console.log(user.get('email'));
+                //this.set('user', user);
             });
         } else {
             return RSVP.resolve();

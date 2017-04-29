@@ -39,6 +39,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
      * A private method that is referenced above.
      */
     _loadCurrentUser() {
-        return this.get('currentUser').load().catch(() => console.log('something terrible happened')); //this.get('session').invalidate()
+        return this.get('currentUser').load().catch((e) => console.log('something terrible happened', e)); //this.get('session').invalidate()
     }
 });

@@ -25,7 +25,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
         const myarr = Array('country', 'category', 'assettype', 'subcategory', 'status', 'donor');
         let modelName =snapshotArray.type.modelName;
         let cnt = store.peekAll(modelName).get('length');
-        console.log(modelName + ": " + cnt);
+        //console.log(modelName + ": " + cnt);
         if (Ember.$.inArray(modelName, myarr) === 1 ) {
             if (cnt === 0) {
                 return true;
