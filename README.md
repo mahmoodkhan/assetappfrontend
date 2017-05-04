@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/mahmoodkhan/assetappfrontend.png?label=ready&title=Ready)](https://waffle.io/mahmoodkhan/assetappfrontend)
 # frontendapp
 
 This README outlines the details of collaborating on this Ember application.
