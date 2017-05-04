@@ -76,40 +76,6 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label">Subcategory:</label>
-        <div class="col-sm-9">
-            {{#power-select
-                options=subcategories
-                selected=selected_subcategory
-                allowClear=true
-                placeholder="Select subcategory"
-                searchField="name"
-                onchange=(action (mut selected_subcategory))
-                as |subcategory|
-            }}
-                {{subcategory.subcategory}}
-            {{/power-select}}
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Status:</label>
-        <div class="col-sm-9">
-            {{#power-select
-                options=statuses
-                selected=selected_status
-                allowClear=true
-                placeholder="Select status"
-                searchField="status"
-                onchange=(action (mut selected_status))
-                as |status|
-            }}
-                {{status.status}}
-            {{/power-select}}
-        </div>
-    </div>
-
-    <div class="form-group">
         <label class="col-sm-2 control-label">Donor:</label>
         <div class="col-sm-9">
             {{#power-select

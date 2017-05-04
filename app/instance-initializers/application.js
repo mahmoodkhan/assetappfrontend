@@ -9,8 +9,6 @@ export function initialize(appInstance) {
     store.findAll('office');
     store.findAll('assettype');
     store.findAll('category');
-    store.findAll('subcategory');
-    store.findAll('status');
     store.findAll('donor');
 }
 

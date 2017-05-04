@@ -11,7 +11,6 @@ export default Ember.Controller.extend({
         'no': ['No', true, "Purchase Request Serial Number"],
         'description': ['Description', true],
         'category.category': ['Category', true],
-        'status.status': ['Status', true],
         'donor.donor': ['Donor', true],
         'brand': ['Brand', true],
         'model': ['Model', true],

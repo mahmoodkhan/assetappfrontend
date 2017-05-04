@@ -6,8 +6,6 @@ export default DS.Model.extend({
     no: DS.attr('number'),
     assettype: DS.belongsTo('assettype', {inverse: 'assets', async: true}),
     category: DS.belongsTo('category', {inverse: 'assets', async: true}),
-    subcategory: DS.belongsTo('subcategory', {inverse: 'assets', async: true}),
-    status: DS.belongsTo('status', {inverse: 'assets', async: true}),
     donor: DS.belongsTo('donor', {inverse: 'assets', async: true}),
     brand: DS.attr('string'),
     model: DS.attr('string'),
@@ -18,5 +16,8 @@ export default DS.Model.extend({
     prnumber: DS.attr('string'),
     ponumber: DS.attr('string'),
     notes: DS.attr('string'),
+    disposed: DS.attr('boolean'),
+    broken: DS.attr('boolean'),
+    custodian: DS.belongsTo('custodian', {inverse: 'assets', assets: true}),
     assethistory: DS.hasMany('assetissuancehistory', {inverse: 'asset', async: true}),
 });

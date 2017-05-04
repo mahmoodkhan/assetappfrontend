@@ -21,8 +21,6 @@ export default Ember.Component.extend({
         this.set('offices', store.query('office', { filter: {country: country_id} }, {backgroundReload: false}));
         this.set('atypes', store.peekAll('assettype'));
         this.set('categories', store.peekAll('category'));
-        this.set('subcategories', store.query('subcategory', { filter: {category: category_id} }));
-        this.set('statuses', store.peekAll('status'));
         this.set('donors', store.peekAll('donor'));
         this.set('custodians', store.peekAll('custodian'));
     },
