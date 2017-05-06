@@ -10,12 +10,12 @@ export default Ember.Component.extend({
     statuses: '',
     donors: '',
     custodians: '',
+    itemSetAsBroken: '',
 
 
     didInsertElement: function(){
         let store = this.get('store');
         let country_id = this.get('selected_country').get('id');
-        let category_id = this.get('selected_category').get('id');
         this.set('countries', store.peekAll('country'));
         //this.set('offices', store.query('office', { filter: {country: country_id, name: 'KBL'} }, {backgroundReload: false}));
         this.set('offices', store.query('office', { filter: {country: country_id} }, {backgroundReload: false}));
@@ -23,6 +23,9 @@ export default Ember.Component.extend({
         this.set('categories', store.peekAll('category'));
         this.set('donors', store.peekAll('donor'));
         this.set('custodians', store.peekAll('custodian'));
+        if (this.get('item').get('broken') === true) {
+            this.set('itemSetAsBroken', 'This item is out-of-order and cannot be assigned to a custodian.');
+        }
     },
 
     actions: {

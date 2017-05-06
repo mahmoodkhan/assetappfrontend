@@ -156,6 +156,28 @@
             {{textarea rows='8' value=item.notes class="form-control" placeholder="Enter notes"}}
         </div>
     </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Out of Order:</label>
+        <div class="checkbox col-sm-9">
+            <label>
+                {{input type="checkbox" checked=item.broken }}
+                {{#if itemSetAsBroken}}
+                    <span class="label label-warning">{{itemSetAsBroken}}</span>
+                {{/if}}
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Disposed:</label>
+        <div class="checkbox col-sm-9">
+            <label>
+                {{input type="checkbox" checked=item.disposed }}
+            </label>
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-9">
             <div class="well well-sm">
