@@ -1,5 +1,25 @@
 <div class="form-horizontal">
     <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+            {{#if itemSetAsDisposed}}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Item Disposed! </strong>{{itemSetAsDisposed}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+            {{#if itemSetAsBroken}}
+                <div class="alert alert-warning" role="alert">
+                    <strong>Item Out of Order! </strong>{{itemSetAsBroken}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="form-group">
         <label class="col-sm-2 control-label">Country:</label>
         <div class="col-sm-9">
             {{#power-select
@@ -174,6 +194,9 @@
         <div class="checkbox col-sm-9">
             <label>
                 {{input type="checkbox" checked=item.disposed }}
+                {{#if itemSetAsDisposed}}
+                    <span class="label label-danger">{{itemSetAsDisposed}}</span>
+                {{/if}}
             </label>
         </div>
     </div>

@@ -11,6 +11,7 @@ export default Ember.Component.extend({
     donors: '',
     custodians: '',
     itemSetAsBroken: '',
+    itemSetAsDisposed: '',
 
 
     didInsertElement: function(){
@@ -25,6 +26,9 @@ export default Ember.Component.extend({
         this.set('custodians', store.peekAll('custodian'));
         if (this.get('item').get('broken') === true) {
             this.set('itemSetAsBroken', 'This item is out-of-order and cannot be assigned to a custodian.');
+        }
+        if (this.get('item').get('disposed') === true) {
+            this.set('itemSetAsDisposed', 'This item has been disposed of and cannot be assigned or editted anymore.');
         }
     },
 
