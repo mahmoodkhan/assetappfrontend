@@ -14,7 +14,31 @@
             buttonLabel="Save changes"
             action="saveAsset"}}
 
-            <button class="btn btn-sm btn-danger pull-right" data-toggle="modal" data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            <div role="group" class="btn-group dropup pull-right">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class= "glyphicon glyphicon-menu-hamburger"></span> More Options
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <button type="button" class="btn btn-link">
+                            <span class="glyphicon glyphicon-warning-sign"></span> Set as Out-of-Order
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-link">
+                            <span class="glyphicon glyphicon-remove"></span> Dispose this item
+                        </button>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <button type="button" class="btn btn-link" style="color: #b30000 !important;" data-toggle="modal" data-target="#deleteModal">
+                            <span class="glyphicon glyphicon-trash"></span>  Delete
+                        </button>
+
+                    </li>
+                </ul>
+            </div>
 
             {{# if isIssued }}
                 <button {{action 'returnAssetFromCustodian' model.asset}} class="btn btn-sm btn-primary">Return Asset From Custodian </button>
