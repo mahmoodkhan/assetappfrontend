@@ -14,6 +14,7 @@
             buttonLabel="Save changes"
             action="saveAsset"}}
 
+            <!-- YIELD - BEGIN: This fills the yield section in the asset-form component -->
             <div role="group" class="btn-group dropup pull-right">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class= "glyphicon glyphicon-menu-hamburger"></span> More Options
@@ -21,24 +22,29 @@
                 </button>
                 <ul class="dropdown-menu" role="menu">
                     <li>
-                        <button type="button" class="btn btn-link">
-                            <span class="glyphicon glyphicon-warning-sign"></span> Set as Out-of-Order
-                        </button>
+                        {{#if model.asset.broken }}
+                            <button type="button" class="btn btn-link" style="color:rgba(0, 0, 0, 0.68);">Mark item as fixed</button>
+                        {{ else }}
+                            <button type="button" class="btn btn-link" style="color:rgba(0, 0, 0, 0.68);">Mark Item as "Out-of-Order"</button>
+                        {{/if}}
                     </li>
                     <li>
-                        <button type="button" class="btn btn-link">
-                            <span class="glyphicon glyphicon-remove"></span> Dispose this item
-                        </button>
+                        {{# if model.asset.disposed }}
+                            <button disabled="disabled" class="btn btn-link" style="color:rgba(0, 0, 0, 0.68);">
+                                <span class="glyphicon glyphicon-ban-circle"> </span> Item is already disposed of!</button>
+                        {{ else }}
+                            <button type="button" class="btn btn-link" style="color:rgba(0, 0, 0, 0.68);">Dispose this item</button>
+                        {{/if}}
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <button type="button" class="btn btn-link" style="color: #b30000 !important;" data-toggle="modal" data-target="#deleteModal">
-                            <span class="glyphicon glyphicon-trash"></span>  Delete
+                        <button type="button" class="btn btn-link" style="color: rgba(179, 0, 0, 0.68) !important" data-toggle="modal" data-target="#deleteModal">
+                            <span class="glyphicon glyphicon-trash"></span>  Delete Item permanently
                         </button>
-
                     </li>
                 </ul>
             </div>
+            <!-- YIELD - END -->
 
             {{# if isIssued }}
                 <button {{action 'returnAssetFromCustodian' model.asset}} class="btn btn-sm btn-primary">Return Asset From Custodian </button>
